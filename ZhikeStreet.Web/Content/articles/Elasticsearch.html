@@ -1,0 +1,753 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:Elasticsearch</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="elasticsearch-net-">elasticsearch.net项目实战</h1>
+<hr>
+<h2 id="-">微知</h2>
+<ul>
+<li>api地址：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.6/index.html">https://www.elastic.co/guide/en/elasticsearch/reference/5.6/index.html</a></li>
+<li>elastic.net:<a href="https://www.elastic.co/guide/en/elasticsearch/client/net-api/5.x/elasticsearch-net.html">https://www.elastic.co/guide/en/elasticsearch/client/net-api/5.x/elasticsearch-net.html</a></li>
+<li>head:<a href="http://47.104.128.14:9100/">http://47.104.128.14:9100/</a></li>
+<li>kibana:<a href="http://47.104.128.14:5601/">http://47.104.128.14:5601/</a></li>
+<li>Demo地址:<a href="http://47.104.128.14:8052/AdminUser/Index">http://47.104.128.14:8052/AdminUser/Index</a></li>
+<li>java环境配置:<a href="https://www.cnblogs.com/lucky_hu/p/6539573.html">https://www.cnblogs.com/lucky_hu/p/6539573.html</a></li>
+</ul>
+<h2 id="-">目录</h2>
+<ul>
+<li><strong>Elasticsearch+kibana</strong><ul>
+<li>环境搭建<ul>
+<li>windows 10环境配置</li>
+<li>安装Elasticsearch</li>
+<li>head安装(非必需)</li>
+<li>安装kibana</li>
+</ul>
+</li>
+<li>基本概念<ul>
+<li>Index</li>
+<li>Type</li>
+<li>Document</li>
+</ul>
+</li>
+<li>DSL的基本使用<ul>
+<li>增加</li>
+<li>修改</li>
+<li>查询</li>
+<li>删除</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Elasticsearch .Net</strong><ul>
+<li>Low level client基本使用</li>
+<li>项目实战</li>
+</ul>
+</li>
+<li><strong>总结</strong></li>
+<li><strong>参考</strong></li>
+</ul>
+<hr>
+<blockquote>
+<p>&#160; &#160;&#160;&#160;Elasticsearch是一个基于Apache Lucene(TM)的开源搜索引擎。无论在开源还是专有领域，Lucene可以被认为是迄今为止最
+先进、性能最好的、功能最全的搜索引擎库。</p>
+</blockquote>
+<blockquote>
+<p>&#160; &#160;&#160;&#160;一说到全文搜索,lucene久负盛名。早年间,因为项目需要,接触过一个叫盘古分词的开源项目,借助其中的分词实现了分词搜索的功能。而盘古分词就是lucence的.NET版本。据说这个开源项目已经恢复更新并支持. NET Core,有兴趣的童鞋可以去围观一下(<a href="https://github.com/LonghronShen/Lucene.Net.Analysis.PanGu/tree/netcore2.0)。">https://github.com/LonghronShen/Lucene.Net.Analysis.PanGu/tree/netcore2.0)。</a></p>
+</blockquote>
+<blockquote>
+<p>&#160; &#160;&#160;&#160; 我想很多童鞋都听过ELK,ELK是Elasticsearch、Logstash、Kibana。正好公司运维同事引入了这样一套体系,用于建立集中式日志收集系统，将所有节点上的日志统一收集，管理，访问。虽然能够从一定程度上解决基本的问题,但是原生的kibana界面和查询方式都不够友好,很难推向广大的开发人员。于是我在想，我们是否可以利用这个开源的库集成到运维自动化平台当中,让这把利剑发挥出更大的价值。</p>
+</blockquote>
+<p><strong>一、环境搭建</strong>
+　</p>
+<blockquote>
+<p>本文是基于windows 10操作系统的es环境的搭建。</p>
+</blockquote>
+<ol>
+<li><strong>java环境安装</strong></li>
+</ol>
+<blockquote>
+<p>&#160; &#160;&#160;&#160;由于es是java语言开发的,所以这里要安装java环境。</p>
+</blockquote>
+<p>&#160; &#160;&#160;&#160;jdk下载:</p>
+<blockquote>
+<p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+</blockquote>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/jdk%E4%B8%8B%E8%BD%BD.png">
+</center>
+
+<p>&#160; &#160;&#160;&#160;安装完成之后就是配置环境变量:</p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE.png">
+</center>
+
+<p>&#160; &#160;&#160;&#160;查看是否安装成功:</p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/java%E7%89%88%E6%9C%AC.png">
+</center>
+
+<p>2.<strong>安装Elasticsearch</strong></p>
+<blockquote>
+<p>&#160;&#160;&#160;&#160;Elasticsearch版本已经比较多,初学者可能比较懵。特别是在安装head和Kibana的时候,如果版本不匹配,往往会导致无法使用。这里使用的是elasticsearch-5.6.11版本。</p>
+</blockquote>
+<p>&#160; &#160;&#160;&#160;elasticsearch-5.6.11下载:</p>
+<blockquote>
+<p><a href="https://www.elastic.co/downloads/past-releases/elasticsearch-5-6-11">https://www.elastic.co/downloads/past-releases/elasticsearch-5-6-11</a></p>
+</blockquote>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/%E4%B8%8B%E8%BD%BDelasticsearch5.6.11.png">
+</center>
+
+
+<p>解压到C:\ELk 备用。</p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/elasticSearh%E8%A7%A3%E5%8E%8B.png">
+</center>
+
+<p>3.<strong>head安装(非必需)</strong></p>
+<blockquote>
+<p>&#160;&#160;&#160;&#160;es 4.x 版本安装head很简单,只需下载head插件解压到指定目录即可。es 5.x+需要借助node安装。</p>
+</blockquote>
+<p>&#160; &#160;&#160;&#160;head下载:</p>
+<blockquote>
+<p><a href="https://github.com/mobz/elasticsearch-head">https://github.com/mobz/elasticsearch-head</a> </p>
+</blockquote>
+<p>解压到C:\ELk\elasticsearch-5.6.11</p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/%E8%A7%A3%E5%8E%8Belasticsearch_head.png">
+</center>
+
+<p>&#160; &#160;&#160;&#160;node下载:</p>
+<blockquote>
+<p><a href="https://nodejs.org/dist/v8.12.0/node-v8.12.0-win-x64.zip">https://nodejs.org/dist/v8.12.0/node-v8.12.0-win-x64.zip</a></p>
+</blockquote>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/%E5%AE%89%E8%A3%85nodejs.png">
+</center>
+
+<p>安装node</p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/%E5%AE%89%E8%A3%85node.png">
+</center>
+
+<p>检查node和npm是否安装成功</p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/%E6%A3%80%E6%9F%A5node%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.png">
+</center>
+
+<p>path环境变量末尾 会自动增加 C:\Program Files\nodejs\</p>
+<p> 安装 phantomjs
+ 官网:<a href="http://phantomjs.org/下载【配置环境变量】">http://phantomjs.org/下载【配置环境变量】</a></p>
+<p> 安装grunt
+ npm install -g grunt-cli</p>
+ <center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/%E5%AE%89%E8%A3%85grunt.png">
+</center>
+
+<p>执行C:\ELk\elasticsearch-5.6.11\bin\elasticsearch.bat</p>
+<p>执行命令启动 head</p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/%E5%90%AF%E5%8A%A8head.png">
+</center>
+
+<p>浏览器访问:<a href="http://localhost:9100/">http://localhost:9100/</a></p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/%E6%B5%8F%E8%A7%88head.png">
+</center>
+
+
+<p>4.<strong>安装kibana</strong></p>
+<blockquote>
+<p>&#160;&#160;&#160;&#160;导致为止,其实elasticsearch自身已经安装完成。通过Head就能很方便的操作es,但是kibana集成了head类似功能,并提供了更加友好的访问界面。 </p>
+</blockquote>
+<p>&#160; &#160;&#160;&#160;kibana-5.6.9-windows-x86下载:</p>
+<blockquote>
+<p><a href="https://www.elastic.co/downloads/past-releases/kibana-5-6-9">https://www.elastic.co/downloads/past-releases/kibana-5-6-9</a></p>
+</blockquote>
+<p>下载之后,解压到C:\ELk\kibana-5.6.9-windows-x86</p>
+<p>执行C:\ELk\kibana-5.6.9-windows-x86\bin\kibana.bat</p>
+<p>浏览器访问:<a href="http://localhost:5601">http://localhost:5601</a></p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AEkibana.png">
+</center>
+
+<hr>
+<p><strong>二、基本概念</strong></p>
+<ul>
+<li><p>Cluster(集群) </p>
+<blockquote>
+<p>&#160; &#160;&#160;&#160;集群是一个或多个节点（服务器）的集合，这些节点一起保存整个数据，并在所有节点上提供联合索引和搜索功能。 </p>
+</blockquote>
+<p>  &#160; &#160;&#160;&#160;一个运行中的 Elasticsearch 实例称为一个 节点，而集群是由一个或者多个拥有相同 cluster.name 配置的节点组成， 它们共同承担数据和负载的压力。当有节点加入集群中或者从集群中移除节点时，集群将会重新平均分布所有的数据。</p>
+<p>  &#160; &#160;&#160;&#160; 作为用户，我们可以将请求发送到 集群中的任何节点 ，包括主节点。 每个节点都知道任意文档所处的位置，并且能够将我们的请求直接转发到存储我们所需文档的节点。 无论我们将请求发送到哪个节点，它都能负责从各个包含我们所需文档的节点收集回数据，并将最终结果返回給客户端。 Elasticsearch 对这一切的管理都是透明的。</p>
+<center>
+  <img src="https://www.elastic.co/guide/cn/elasticsearch/guide/cn/images/elas_0201.png">
+</center>
+</li>
+<li><p>Node(节点)</p>
+<blockquote>
+<p>节点是集群的一部分、存储数据并参与集群的索引和搜索功能的单个服务器。</p>
+</blockquote>
+<center>
+  <img src="https://www.elastic.co/guide/cn/elasticsearch/guide/cn/images/elas_0202.png">
+</center>
+
+
+</li>
+</ul>
+<ul>
+<li><p>Index</p>
+<blockquote>
+<p>索引是具有相似特性的文档集合。</p>
+<ul>
+<li>类似于关系型数据库中&quot;<strong>库</strong>&quot;的概念</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Type</p>
+<blockquote>
+<p>Type是具有一组公共字段的文档定义类型</p>
+</blockquote>
+<p>  &#160; &#160;&#160;&#160;例如，假设您运行一个博客平台并将所有数据存储在一个索引中。在该索引中，可以定义用户数据的类型、博客数据的另一种类型以及注释数据的另一种类型。</p>
+<ul>
+<li>类似于关系型数据库中&quot;<strong>表</strong>&quot;的概念</li>
+</ul>
+</li>
+<li><p>Document</p>
+<blockquote>
+<p>被索引信息的基本单元。</p>
+<ul>
+<li>类似于关系型数据库的一个记录(行)</li>
+<li>会被压缩成json格式</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Shards &amp; Replicas(分片&amp;副本分片)</p>
+<blockquote>
+<p>索引可以潜在地存储可以超过单个节点的硬件限制的大量数据。例如，占用1TB磁盘空间的十亿个文档的单个索引可能不适合单个节点的磁盘，或者可能太慢而无法单独为来自单个节点的搜索请求提供服务。</p>
+</blockquote>
+<p>&#160; &#160;&#160;&#160;分片的两个主要原因：</p>
+<ul>
+<li>它允许您水平分割/缩放您的内容卷。</li>
+<li>它允许你分配和并行操作的碎片（可能在多个节点上）从而提高性能/吞吐量</li>
+</ul>
+<blockquote>
+<p>在网络/云环境中，在任何时候都可以预期到故障，在碎片/节点不知何故脱机或由于任何原因消失的情况下，非常有用，并且强烈建议使用故障转移机制。为此，Elasticsearch允许您将一个或多个索引碎片的副本复制到称为副本碎片（replica shards）或简称为副本（replica）中。</p>
+</blockquote>
+<p> &#160; &#160;&#160;&#160;复制是重要的两个主要原因：</p>
+<ul>
+<li>在碎片/节点失败的情况下，它提供了高可用性。由于这个原因，需要注意的是，副本碎片永远不会分配到与原始/主碎片相同的节点上。</li>
+<li><p>它允许您扩展搜索量/吞吐量，因为可以并行地在所有副本上执行搜索。</p>
+<p>&#160; &#160;&#160;&#160;添加故障转移</p>
+<blockquote>
+<p>当集群中只有一个节点在运行时，意味着会有一个单点故障问题——没有冗余。 幸运的是，我们只需再启动一个节点即可防止数据丢失。</p>
+</blockquote>
+<p>&#160; &#160;&#160;&#160;拥有两个节点的集群——所有主分片和副本分片都已被分配。</p>
+<center>
+<img src="https://www.elastic.co/guide/cn/elasticsearch/guide/cn/images/elas_0203.png">
+</center>
+
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>三、DSL的基本使用</strong></p>
+<blockquote>
+<p>elasticsearch也像mysql一样提供了专门的语法来操作数据。Elasticsearch provides a full Query DSL (Domain Specific Language) based on JSON to define queries. </p>
+</blockquote>
+<ul>
+<li>创建文档</li>
+</ul>
+<pre><code>PUT people/person/1?op_type=create
+{
+    &quot;user&quot; : &quot;kimchy&quot;,
+    &quot;post_date&quot; : &quot;2009-11-15T14:12:12&quot;,
+    &quot;message&quot; : &quot;trying out Elasticsearch&quot;
+}
+</code></pre><ul>
+<li>修改</li>
+</ul>
+<pre><code>POST /user/guest/20/_update
+{
+    &quot;doc&quot;: {
+      &quot;RealName&quot;:&quot;LukyHuu20&quot;
+    }
+}
+</code></pre><ul>
+<li>查询</li>
+</ul>
+<pre><code>GET /user/guest/_search
+{
+    &quot;query&quot;: {
+      &quot;match&quot;: {
+        &quot;Id&quot;:22
+      }
+    }
+}
+</code></pre><ul>
+<li>删除</li>
+</ul>
+<pre><code>DELETE /user/guest/15
+{
+
+}
+</code></pre><p><strong>四、Elasticsearch .Net</strong></p>
+<p>&#160; &#160;&#160;&#160;elasticsearch是以restfulAPI方式对外提供接口,并提供客户端给多种语言使用。Elasticsearch uses standard RESTful APIs and JSON. We also build and maintain clients in many languages such as Java, Python, .NET, SQL, and PHP. Plus, our community has contributed many more. They’re easy to work with, feel natural to use, and, just like Elasticsearch, don&#39;t limit what you might want to do with them.
+参考(<a href="https://www.elastic.co/products/elasticsearch">https://www.elastic.co/products/elasticsearch</a>)</p>
+<p>1.<strong>Low level client基本使用</strong></p>
+<p>&#160; &#160;&#160;&#160;本文是介绍ES的.NET客户端,Elasticsearch .Net - Low level client[5.x]</p>
+<p>通过引入对应的版本的客户端,便可通过C#操作ES。参考(<a href="https://www.elastic.co/guide/en/elasticsearch/client/net-api/5.x/elasticsearch-net.html">https://www.elastic.co/guide/en/elasticsearch/client/net-api/5.x/elasticsearch-net.html</a>)</p>
+<p>连接</p>
+<pre><code>var settings = new ConnectionConfiguration(new Uri(&quot;http://example.com:9200&quot;))
+    .RequestTimeout(TimeSpan.FromMinutes(2));
+
+var lowlevelClient = new ElasticLowLevelClient(settings);
+</code></pre><p>插入文档</p>
+<pre><code> var indexResponse = lowlevelClient.Index&lt;byte[]&gt;(&quot;user&quot;, &quot;guest&quot;, user.Id.ToString(), user);
+ byte[] responseBytes = indexResponse.Body;
+</code></pre><p>更新文档</p>
+<pre><code>var searchResponse = lowlevelClient.Update&lt;string&gt;(&quot;user&quot;, &quot;guest&quot;, id.ToString(), new
+                {
+                    doc = new
+                    {
+                        RealName = realname,
+                        Description = description
+                    }
+                });
+
+bool successful = searchResponse.Success;
+</code></pre><p>查询</p>
+<pre><code>var searchResponse = lowlevelClient.Search&lt;string&gt;(&quot;user&quot;, &quot;guest&quot;, new
+                {
+                    query = new
+                    {
+                        match = new
+                        {
+                            Id = id
+                        }
+                    }
+                });
+
+bool successful = searchResponse.Success;
+</code></pre><p>删除</p>
+<pre><code>var searchResponse = lowlevelClient.Delete&lt;string&gt;(&quot;user&quot;, &quot;guest&quot;, id.ToString());
+
+                bool successful = searchResponse.Success;
+</code></pre><p>2.<strong>项目实战</strong></p>
+<blockquote>
+<p>&#160; &#160;&#160;&#160;前面大致介绍了ES的安装和基本使用。那么,如何在项目中落地呢？</p>
+</blockquote>
+<p>使用nuget安装Elasticsearch.Net 5.6.4</p>
+<blockquote>
+<p>Install-Package Elasticsearch.Net -Version 5.6.4</p>
+</blockquote>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/nuget_es.png">
+</center>
+
+<p>安装完后,</p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84es.png">
+</center>
+
+<p>基本的增删该查在项目中的实现上面已经有所介绍,这里重点讲一下查询:</p>
+<p>笔者使用的.NET MVC5 Web框架,对于返回的结果笔者做了一个简单封装：</p>
+<pre><code>
+public class ESearchRoot&lt;T&gt;
+    {
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public int took { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string timed_out { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public _shards _shards { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public Hits&lt;T&gt; hits { get; set; }
+    }
+
+    public class _shards
+    {
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public int total { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public int successful { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public int skipped { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public int failed { get; set; }
+    }
+
+    public class HitsItem&lt;T&gt;
+    {
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string _index { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string _type { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string _id { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string _score { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public T _source { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public List&lt;int&gt; sort { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public Highlight highlight { get; set; }
+    }
+
+    public class Hits&lt;T&gt;
+    {
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public int total { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string max_score { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public List&lt;HitsItem&lt;T&gt;&gt; hits { get; set; }
+    }
+
+    public class Highlight
+    {
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public List&lt;string&gt; Description { get; set; }
+    }
+
+</code></pre><p>因为soure返回的对象是不定的,所以使用了泛型。
+本项目soure对应的类,user:</p>
+<pre><code>
+ ///&lt;summary&gt;
+    /// 
+    /// &lt;/summary&gt;
+    public class User
+    {
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string Account { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string Phone { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string Email { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string RealName { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string CanReview { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string CanExcute { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string Avatar { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string IsUse { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public int Id { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string Name { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public string Description { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public DateTime CreateTime { get; set; }
+        /// &lt;summary&gt;
+        /// 
+        /// &lt;/summary&gt;
+        public DateTime ModifyTime { get; set; }
+    }
+
+</code></pre><p>项目使用了带条件的分页查询:</p>
+<pre><code>public List&lt;AdminUser&gt; GetBySomeWhere(string keyword, int limit, int pageSize, out int total)
+        {
+            List&lt;AdminUser&gt; users = new List&lt;AdminUser&gt;();
+
+            total = 0;
+            try
+            {
+                var settings = new ConnectionConfiguration(new Uri(&quot;http://localhost:9200/&quot;))
+   .RequestTimeout(TimeSpan.FromMinutes(2));
+
+                var lowlevelClient = new ElasticLowLevelClient(settings);
+
+                //根据不同的参数 来构建不同的查询条件
+                var request = new object();
+                if (!String.IsNullOrEmpty(keyword))
+                {
+                    request = new
+                    {
+                        from = limit,
+                        size = pageSize,
+                        query = new
+                        {
+                            match = new
+                            {
+                                Description = keyword
+                            }
+                        },
+                        highlight = new
+                        {
+                            fields = new
+                            {
+                                Description = new { }
+                            }
+                        },
+                        sort = new
+                        {
+                            Id = new
+                            {
+                                order = &quot;desc&quot;
+                            }
+                        }
+                    };
+                }
+                else
+                {
+                    request = new
+                    {
+                        from = limit,
+                        size = pageSize,
+                        query = new
+                        {
+                            match_all = new
+                            {
+
+                            }
+                        },
+                        highlight = new
+                        {
+                            fields = new
+                            {
+                                Description = new { }
+                            }
+                        },
+                        sort = new
+                        {
+                            Id = new
+                            {
+                                order = &quot;desc&quot;
+                            }
+                        }
+                    };
+                }
+
+
+                var searchResponse = lowlevelClient.Search&lt;string&gt;(&quot;user&quot;, &quot;guest&quot;, request);
+
+                bool successful = searchResponse.Success;
+                var responseJson = searchResponse.Body;
+
+                if (!successful)
+                {
+                    return users;
+                }
+
+                ESearchRoot&lt;User&gt; root = JsonHelper.JSONStringObject&lt;ESearchRoot&lt;User&gt;&gt;(responseJson);
+                if (root != null)
+                {
+                    total = root.hits.total;
+                    foreach (HitsItem&lt;User&gt; item in root.hits.hits)
+                    {
+                        if (item._source != null)
+                        {
+                            string highlightDescription = String.Empty;
+                            StringBuilder sbDs = new StringBuilder();
+                            if (item.highlight != null &amp;&amp; item.highlight.Description.Count &gt; 0)
+                            {
+                                //ighlightDescription = item.highlight.Description[0];
+                                foreach (var d in item.highlight.Description)
+                                {
+                                    sbDs.Append(d);
+                                }
+                                highlightDescription = sbDs.ToString();
+                            }
+
+                            AdminUser user = new AdminUser
+                            {
+                                Id = item._source.Id,
+                                RealName = item._source.RealName,
+                                Account = item._source.Account,
+                                Email = item._source.Email,
+                                Phone = item._source.Phone,
+                                //IsUse=item._source.IsUse,
+                                Avatar = item._source.Avatar,
+                                Description = item._source.Description,
+                                HighlightDescription = highlightDescription,
+                                CreateTime = item._source.CreateTime,
+                                ModifyTime = item._source.ModifyTime
+                            };
+                            users.Add(user);
+                        }
+                    }
+                }
+
+                return users;
+            }
+            catch (ElasticsearchClientException ex)
+            {
+                //Log4Helper.Error
+            }
+            return users;
+        }
+</code></pre><p>项目最终的效果如下:</p>
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/es_table.png">
+</center>
+
+<center>
+    <img src="http://ou71ojlz3.bkt.clouddn.com/es_update.png">
+</center>
+
+
+<p><strong>五、总结</strong></p>
+<p>&#160; &#160;&#160;&#160;elasticsearch是很强大的开源工具,在实现全文搜索上有其独到之处,也是大数据的分析方面利器,值得大家深入去研究和实践。</p>
+<p><strong>六、参考</strong></p>
+<ul>
+<li>&emsp;&emsp;<a href="https://www.elastic.co/guide/cn/elasticsearch/guide/cn/index.html">Elasticsearch权威指南</a></li>
+<li>&emsp;&emsp;<a href="https://www.elastic.co/guide/en/elasticsearch/client/net-api/5.x/elasticsearch-net.html">Elasticsearch.Net 5.x</a></li>
+<li>&emsp;&emsp;<a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.6/docs.html#docs">Elasticsearch Reference [5.6] » Document APIs</a></li>
+<li>&emsp;&emsp;<a href="https://github.com/elastic/elasticsearch-net-example/tree/5.x">elasticsearch-net-example</a></li>
+<li>&emsp;&emsp;<a href="https://www.cnblogs.com/techroad4ca/p/7748293.html">ElasticSearch安装及HEAD插件配置</a></li>
+</ul>
+<hr>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>

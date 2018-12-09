@@ -1,0 +1,456 @@
+﻿@using ZhikeStreet.Web.Helpers
+@using ZhikeStreet.Models.DO;
+
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    @*
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <title>uLinker</title>*@
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>智客坊</title>
+
+    <!-- 使用url函数转换相关路径 -->
+    <!-- 判断是否使用 CDN 加载基础资源-->
+    <!-- 使用 CDN-->
+    @*
+        <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://theme.typecho.ptbird.cn/bootstrap-blog/usr/themes/postbird/css/style.css">
+        <link rel="stylesheet" href="http://theme.typecho.ptbird.cn/bootstrap-blog/usr/themes/postbird/css/prism.css">
+        <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="http://theme.typecho.ptbird.cn/bootstrap-blog/usr/themes/postbird/js/jquery.goup.min.js"></script>
+        <script src="http://theme.typecho.ptbird.cn/bootstrap-blog/usr/themes/postbird/js/prism.js"></script>
+        <script src="http://theme.typecho.ptbird.cn/bootstrap-blog/usr/themes/postbird/js/app.js"></script>*@
+
+    <!-- 不使用 CDN-->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+    <link href="~/assets/css/prism.css" rel="stylesheet" />
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" />
+
+    <script src="~/assets/js/jquery-2.2.1.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.goup.min.js"></script>
+    <script src="~/assets/js/prism.js"></script>
+    <script src="~/assets/js/app.js"></script>
+
+    <!--jquery tmpl-->
+    <script src="~/scripts/jquery.tmpl.js"></script>
+    <script src="~/scripts/helper.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- 通过自有函数输出HTML头部信息 -->
+    <meta name="description" content="智客坊">
+    <meta name="keywords" content="互联网,大数据,C#,blog,hadoop,elasticsearch">
+    <meta name="generator" content="Typecho 1.1/17.10.30">
+    <meta name="template" content="postbird">
+    <link rel="pingback" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc">
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc?rsd">
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc?wlw">
+    <link rel="alternate" type="application/rss+xml" title="BootstrapBlog 主题 » RSS 2.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/">
+    <link rel="alternate" type="application/rdf+xml" title="BootstrapBlog 主题 » RSS 1.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/rss/">
+    <link rel="alternate" type="application/atom+xml" title="BootstrapBlog 主题 » ATOM 1.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/atom/">
+    <!-- 用户自定义 stylesheet -->
+    <!-- 用户自定义 stylesheet -->
+    <style type="text/css">
+        @("@")media (min-width: 768px) {
+            .navbar-expand-md .navbar-nav .nav-link {
+                padding-right: 0;
+                padding-left: 0;
+            }
+
+
+            .dropdown-submenu {
+                position: relative;
+            }
+
+                .dropdown-submenu a::after {
+                    transform: rotate(-90deg);
+                    position: absolute;
+                    right: 3px;
+                    top: 40%;
+                }
+
+                .dropdown-submenu:hover .dropdown-menu, .dropdown-submenu:focus .dropdown-menu {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute !important;
+                    margin-top: -30px;
+                    left: 100%;
+                }
+
+            @("@")media (max-width: 992px) {
+                .dropdown-menu {
+                    width: 50%;
+                }
+
+                    .dropdown-menu .dropdown-submenu {
+                        width: auto;
+                    }
+            }
+        }
+
+        .topbar-user-avatar {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    border-radius: 16px;
+}
+
+    </style>
+
+    <style type="text/css">
+        .copyright {
+            font-size: 12px;
+            padding: 5px 10px;
+            background: #454545;
+            border-top: solid 1px #777;
+            color: silver;
+        }
+
+        .row-fluid {
+            width: 100%;
+        }
+
+        .list li {
+            display: inline-block;
+        }
+    </style>
+
+    <!--百度统计代码-->
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?371dbb47b1a31ec975ba6f3fb1ca27dd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body class="no-skin">
+
+    <!--[if lt IE 8]>
+    <div class="browsehappy" role="dialog">当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a
+            href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+    <header id="header" class="clearfix">
+        @*<nav class="navbar navbar-dark bg-dark navbar-expand-md">*@
+        <nav class="navbar navbar-dark navbar-expand-md" style="background-color:#454545">
+            <div class="container">
+                <a id="logo" class="navbar-brand" href="/home/index" title="智客坊">智客坊</a>
+                @*<a id="logo" class="navbar-brand" href="/home/index" title="智客坊">
+                        <img src="http://pepper.img.zhikestreet.com/%E6%99%BA%E5%AE%A2%E5%9D%8A3.png" />
+                    </a>*@
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/home/index">首页 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/category/index">分类 <span class="sr-only">(current)</span></a>
+                        </li>
+                        @*<li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    技术干货
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">大后端</a>
+                                        <ul class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">.NET</a>
+                                            <a class="dropdown-item" href="#">Java</a>
+                                            <a class="dropdown-item" href="#">Python</a>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">大数据</a>
+                                        <ul class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">消息队列</a>
+                                            <a class="dropdown-item" href="#">ElasticSearch</a>
+                                            <a class="dropdown-item" href="#">Hadoop</a>
+                                            <a class="dropdown-item" href="#">Zookeeper</a>
+                                            <a class="dropdown-item" href="#">MogoDB</a>
+                                            <a class="dropdown-item" href="#">postgresql</a>
+                                            <a class="dropdown-item" href="#">Redis</a>
+                                            <a class="dropdown-item" href="#">Mysql高性能调优</a>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">大前端</a>
+                                        <ul class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">VUE</a>
+                                            <a class="dropdown-item" href="#">React</a>
+                                            <a class="dropdown-item" href="#">Angular</a>
+                                            <a class="dropdown-item" href="#">Node</a>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">大运维</a>
+                                        <ul class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Windows 运维</a>
+                                            <a class="dropdown-item" href="#">Linux运维</a>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">架构</a>
+                                        <ul class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">负载均衡</a>
+                                            <a class="dropdown-item" href="#">GateWay</a>
+                                            <a class="dropdown-item" href="#">微服务</a>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">安全</a></li>
+                                    <li><a class="dropdown-item" href="#">人工智能</a></li>
+                                    <li><a class="dropdown-item" href="#">区块链</a></li>
+                                </ul>
+                            </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="微任务"><span>微任务</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="微创意"><span>微创意</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Contribute/Index" title="投稿"><span>投稿</span></a>
+                        </li>
+                        @*<li class="nav-item">
+                                <a class="nav-link" href="#" title="微聘"><span>微聘</span></a>
+                            </li>*@
+                        @*<li class="nav-item">
+                                <a class="nav-link" href="#" title="微评"><span>微评</span></a>
+                            </li>*@
+                        @*<li class="nav-item">
+                                <a class="nav-link" href="#" title="工具"><span>工具</span></a>
+                            </li>*@
+                        @*<li class="nav-item">
+                                <a class="nav-link" href="#" title="关于"><span>关于</span></a>
+                            </li>*@
+                        @*<li class="nav-item">
+                                <a class="nav-link" href="/account/login" title="控制台"><span>控制台</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/account/login" title="登陆"><span>登陆</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/account/register" title="注册"><span>注册</span></a>
+                            </li>*@
+                    </ul>
+                    <div class="navbar-text">
+                        @*<form method="post" action="http://theme.typecho.ptbird.cn/bootstrap-blog/" class="search-form form-inline">
+                                <div class="form-group">
+                                    <input type="search" name="s" class="form-control form-control-sm">
+                                    <button class="btn btn-info btn-sm">搜索</button>
+                                </div>
+                            </form>*@
+                        <div class="search-form form-inline">
+                            <div class="form-group">
+                                <input type="search" name="s" class="form-control form-control-sm" id="globalSearch">
+                                <button class="btn btn-info btn-sm" id="btnGlobalSearch">搜索</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/guest/index" title="控制台"><span>控制台</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="关于"><span>关于</span></a>
+                        </li>
+                        @{
+                            var currentUser = Session[AccountConst.CurrentAdminUser] as AdminUser;
+                            if (currentUser == null)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/account/login" title="登陆"><span>登陆</span></a>
+                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/account/register" title="注册"><span>注册</span></a>
+                                    </li>
+                            }
+                            else if (currentUser != null)
+                            {
+                                @*<li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            技术干货
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li class="dropdown-submenu">
+                                                <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">架构</a>
+                                                <ul class="dropdown-menu">
+                                                    <a class="dropdown-item" href="#">负载均衡</a>
+                                                    <a class="dropdown-item" href="#">GateWay</a>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/account/login" title="登陆"><span>登陆</span></a>
+                                    </li>*@
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle"
+                                       data-toggle="dropdown"
+                                       style="height: 60px">
+                                        <img alt="" class="topbar-user-avatar" src="@currentUser.Avatar" />
+                                        <span style="color: #FFFFFF;font-size: 15px">
+                                            <i>@currentUser.NickName</i>
+                                        </span>
+                                    </a>
+                                    <div class="dropdown-menu pull-right"
+                                         style="background: #FFFFFF;width: 320px;overflow: hidden">
+                                        <div style="margin-top: 16px;border-bottom: 1px solid #eeeeee">
+                                            <div style="text-align: center">
+                                                <img class="img-circle" src="@currentUser.Avatar"
+                                                     style="width: 38px;height: 38px;" />
+                                            </div>
+                                            <div style="color: #323534;text-align: center;line-height: 36px;font-size: 15px">
+                                                <span>@currentUser.NickName</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-left: 15px;margin-right: 15px;margin-top: 10px">
+                                            <div class="col-md-4 text-center grid">
+                                                <i class="fa fa-user" style="font-size: 25px;line-height: 45px;"></i>
+                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                    个人中心
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 text-center grid">
+                                                <i class="fa fa-gear" style="font-size: 25px;line-height: 45px;"></i>
+                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                    账号管理
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 text-center grid">
+                                                <i class="fa fa-key" style="font-size: 25px;line-height: 45px;"></i>
+                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                    密码修改
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-left: 15px;margin-right: 15px;margin-top: 10px">
+                                            <div class="col-md-4 text-center grid">
+                                                <i class="fa fa-user-circle" style="font-size: 25px;line-height: 45px;"></i>
+                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                    修改头像
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 text-center grid">
+                                                <i class="fa fa-comments" style="font-size: 25px;line-height: 45px;"></i>
+                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                    消息
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 text-center grid">
+                                                <i class="fa fa-heart-o" style="font-size: 25px;line-height: 45px;"></i>
+                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                    帮助中心
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-top: 20px">
+                                            @*<div class="text-center"
+                                                     style="padding: 15px;margin: 0px;background: #f6f5f5;color: #323534;">
+                                                    <i class="icon-signout"></i> 退出
+                                                </div>*@
+                                            <a href="/account/logout" class="text-center" style="padding: 15px;margin: 0px;background: #f6f5f5;color: #323534;">
+                                                <i class="icon-signout"></i>
+                                                退出
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header><!-- end #header -->
+    <div id="body">
+        <div class="container main-wrapper">
+            @RenderBody()
+        </div>
+
+    </div>
+    @*<div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <footer id="footer" role="contentinfo" class="text-center">
+                        Copyright © 2018 ZHIKESTREET.COM All Rights Reserved.<br>
+                        蜀ICP备18033910号-1
+                    </footer>
+                </div>
+            </div>
+        </div>*@
+
+    <div class="copyright">
+        <div class="container">
+            @*<div class="row-fluid text-center">
+                    <p>Copyright &copy; 2018 ZHIKESTREET.COM All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p>蜀ICP备18033910号-1&nbsp;&nbsp;&nbsp;</p>
+                </div>*@
+            <div class="row row-fluid">
+                <div class="col-md-4">
+                    <h5>合作伙伴</h5>
+                    <ul class="list">
+                        <li><img src="http://pepper.img.zhikestreet.com/aly.png" width="90px"></canvas></li>
+                        <li><img src="http://pepper.img.zhikestreet.com/qny.png" width="90px"></canvas></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>联系我</h5>
+                    <ul class="list">
+                        <li>576810529@qq.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>友情链接</h5>
+                    <ul class="list">
+                        <li> <a style="color:silver;" href="https://tool.lu/" target="_blank">在线工具</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row-fluid text-center">
+                Copyright © 2018 ZHIKESTREET.COM All Rights Reserved.<br>
+                蜀ICP备18033910号-1
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".dropdown").mouseover(function () {
+                $(this).addClass("open");
+            });
+
+            $(".dropdown").mouseleave(function () {
+                $(this).removeClass("open");
+            })
+        })
+    </script>
+</body>
+</html>

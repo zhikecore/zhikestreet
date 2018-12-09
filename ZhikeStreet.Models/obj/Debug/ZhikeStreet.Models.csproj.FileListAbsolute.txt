@@ -1,0 +1,5 @@
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Models\bin\Debug\ZhikeStreet.Models.dll
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Models\bin\Debug\ZhikeStreet.Models.pdb
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Models\obj\Debug\ZhikeStreet.Models.dll
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Models\obj\Debug\ZhikeStreet.Models.pdb
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Models\obj\Debug\ZhikeStreet.Models.csprojResolveAssemblyReference.cache

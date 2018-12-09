@@ -1,0 +1,6 @@
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.DB\bin\Debug\ZhikeStreet.Common.DB.dll
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.DB\bin\Debug\ZhikeStreet.Common.DB.pdb
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.DB\bin\Debug\MySql.Data.dll
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.dll
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.pdb
+E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.csprojResolveAssemblyReference.cache

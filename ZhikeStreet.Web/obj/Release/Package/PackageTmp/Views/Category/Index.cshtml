@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ZhikeStreet.Models.VO.ArticleTypeViewModel>
+
+<div class="container main-wrapper">
+    <div class="row">
+
+        <div class="col-md-12 text-center">
+            <div class="page-header">
+                <h2 class="page-title">分类</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="col-md-12 ">
+            <div class="page-wrapper">
+                <div class="categary-wrapper">
+                    <div class="categary-content" itemprop="articleBody">
+                        <div class="categary-list">
+                            @{
+                                foreach (ZhikeStreet.Models.VO.ArticleTypeViewModel item in this.Model)
+                                {
+                                    <div class="col-md-3 categary-item-wrapper">
+                                        <div class="categary-item">
+                                            <a class="categary-item-link" href="/Category/Detail/@item.Id"> @item.Name ·  (@item.ArticleCount)</a>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                            @*<div class="col-md-3 categary-item-wrapper">
+                                    <div class="categary-item">
+                                        <a class="categary-item-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/"> PHP ·  (8)</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 categary-item-wrapper">
+                                    <div class="categary-item">
+                                        <a class="categary-item-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/nodejs/"> nodejs ·  (3)</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 categary-item-wrapper">
+                                    <div class="categary-item">
+                                        <a class="categary-item-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/javascript/"> javascript ·  (0)</a>
+                                    </div>
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 用户自定义脚本内容 -->
+
+    </div>
+</div>

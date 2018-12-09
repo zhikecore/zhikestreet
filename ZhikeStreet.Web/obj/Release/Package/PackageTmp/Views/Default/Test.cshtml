@@ -1,0 +1,352 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    @*<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <title>uLinker</title>*@
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>BootstrapBlog 主题</title>
+
+    <!-- 使用url函数转换相关路径 -->
+    <!-- 判断是否使用 CDN 加载基础资源-->
+    <!-- 使用 CDN-->
+    @*<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://theme.typecho.ptbird.cn/bootstrap-blog/usr/themes/postbird/css/style.css">
+        <link rel="stylesheet" href="http://theme.typecho.ptbird.cn/bootstrap-blog/usr/themes/postbird/css/prism.css">
+        <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="http://theme.typecho.ptbird.cn/bootstrap-blog/usr/themes/postbird/js/jquery.goup.min.js"></script>
+        <script src="http://theme.typecho.ptbird.cn/bootstrap-blog/usr/themes/postbird/js/prism.js"></script>
+        <script src="http://theme.typecho.ptbird.cn/bootstrap-blog/usr/themes/postbird/js/app.js"></script>*@
+
+    <!-- 不使用 CDN-->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+    <link href="~/assets/css/prism.css" rel="stylesheet" />
+    <script src="~/assets/js/jquery-2.2.1.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.goup.min.js"></script>
+    <script src="~/assets/js/prism.js"></script>
+    <script src="~/assets/js/app.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- 通过自有函数输出HTML头部信息 -->
+    <meta name="description" content="基于Bootstrap4的响应式typecho博客主题">
+    <meta name="keywords" content="typecho主题,typecho,php,blog">
+    <meta name="generator" content="Typecho 1.1/17.10.30">
+    <meta name="template" content="postbird">
+    <link rel="pingback" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc">
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc?rsd">
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc?wlw">
+    <link rel="alternate" type="application/rss+xml" title="BootstrapBlog 主题 » RSS 2.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/">
+    <link rel="alternate" type="application/rdf+xml" title="BootstrapBlog 主题 » RSS 1.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/rss/">
+    <link rel="alternate" type="application/atom+xml" title="BootstrapBlog 主题 » ATOM 1.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/atom/">
+    <!-- 用户自定义 stylesheet -->
+    <style>
+    </style>
+
+</head>
+<body class="no-skin">
+
+    <!--[if lt IE 8]>
+    <div class="browsehappy" role="dialog">当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a
+            href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+    <header id="header" class="clearfix">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+            <div class="container">
+                <a class="navbar-brand" href="http://theme.typecho.ptbird.cn/bootstrap-blog/" title="基于Bootstrap4的响应式typecho博客主题">BootstrapBlog 主题</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/">首页 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/14.html" title="文章分类"><span>文章分类</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/15.html" title="文章归档"><span>文章归档</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/17.html" title="标签"><span>标签</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/18.html" title="友链"><span>友链</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/start-page.html" title="关于"><span>关于</span></a>
+                        </li>
+                    </ul>
+                    <div class="navbar-text">
+                        <form method="post" action="http://theme.typecho.ptbird.cn/bootstrap-blog/" class="search-form form-inline">
+                            <div class="form-group">
+                                <input type="search" name="s" class="form-control form-control-sm">
+                                <button class="btn btn-info btn-sm">搜索</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header><!-- end #header -->
+    <div id="body">
+        <div class="container main-wrapper">
+            <div class="row">
+
+
+                <div class="col-md-8 col-xs-12 " id="main" role="main">
+                    <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3><a class="title-link" itemprop="url" title="基于Bootstrap4的 响应式 typecho 博客主题" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/"><span style="color:red">[置顶] </span>基于Bootstrap4的 响应式 typecho 博客主题</a></h3>
+                            </div>
+                            <div class="col-md-4 ">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/">
+                                    <img src="./BootstrapBlog 主题_files/3593023988.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <!--                   <hr>-->
+                                <div class="post-content" itemprop="articleBody">
+                                    github 地址：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题一、主题说明1、依赖jquery 2.1.4bootstrap 4markdown.css  ， 优化...
+                                </div>
+                            </div>
+                            <div class="col-md-12 post-meta">
+                                <ul class="">
+                                    <li>时间： <time datetime="2018-07-15T21:33:00+08:00" itemprop="datePublished">2018-07-15</time></li>
+                                    <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                                    <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                                    <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/#comments">17 条评论</a></li>
+                                    <li class="float-right">
+                                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/" class="float-right">阅读全文</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3><a class="title-link" itemprop="url" title="[更新] 修复 archive.php 页面分页问题" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/42/">[更新] 修复 archive.php 页面分页问题</a></h3>
+                            </div>
+                            <div class="col-md-4 ">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/42/">
+                                    <img src="./BootstrapBlog 主题_files/1982966592.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <!--                   <hr>-->
+                                <div class="post-content" itemprop="articleBody">
+                                    github：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题更新时间2018-07-19更新内容：修复 archive.php 模板页面的分页显示问题。涉及的博客页面包...
+                                </div>
+                            </div>
+                            <div class="col-md-12 post-meta">
+                                <ul class="">
+                                    <li>时间： <time datetime="2018-07-19T00:36:00+08:00" itemprop="datePublished">2018-07-19</time></li>
+                                    <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                                    <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                                    <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/42/#comments">0 条评论</a></li>
+                                    <li class="float-right">
+                                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/42/" class="float-right">阅读全文</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3><a class="title-link" itemprop="url" title="[更新] 修复 post 页面版权显示问题" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/38/">[更新] 修复 post 页面版权显示问题</a></h3>
+                            </div>
+                            <div class="col-md-4 ">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/38/">
+                                    <img src="./BootstrapBlog 主题_files/4173586961.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <!--                   <hr>-->
+                                <div class="post-content" itemprop="articleBody">
+                                    github：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题更新时间2018-07-19更新内容：修复原来文章页面 post.php 下 版权显示问题。之前由于失误，将...
+                                </div>
+                            </div>
+                            <div class="col-md-12 post-meta">
+                                <ul class="">
+                                    <li>时间： <time datetime="2018-07-19T00:31:00+08:00" itemprop="datePublished">2018-07-19</time></li>
+                                    <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                                    <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                                    <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/38/#comments">0 条评论</a></li>
+                                    <li class="float-right">
+                                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/38/" class="float-right">阅读全文</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3><a class="title-link" itemprop="url" title="[更新] 增加后台控制是否启用公共 CDN 链接" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/36/">[更新] 增加后台控制是否启用公共 CDN 链接</a></h3>
+                            </div>
+                            <div class="col-md-4 ">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/36/">
+                                    <img src="./BootstrapBlog 主题_files/1846441881.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <!--                   <hr>-->
+                                <div class="post-content" itemprop="articleBody">
+                                    github：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题更新时间2018-07-16更新内容：用户可以在 控制台 -&gt; 外观 -&gt; 设置外观 设置是否开...
+                                </div>
+                            </div>
+                            <div class="col-md-12 post-meta">
+                                <ul class="">
+                                    <li>时间： <time datetime="2018-07-16T23:43:00+08:00" itemprop="datePublished">2018-07-16</time></li>
+                                    <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                                    <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                                    <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/36/#comments">0 条评论</a></li>
+                                    <li class="float-right">
+                                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/36/" class="float-right">阅读全文</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3><a class="title-link" itemprop="url" title="[更新] 增加用户自定义备案号、样式和脚本功能" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/34/">[更新] 增加用户自定义备案号、样式和脚本功能</a></h3>
+                            </div>
+                            <div class="col-md-4 ">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/34/">
+                                    <img src="./BootstrapBlog 主题_files/4038731483.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <!--                   <hr>-->
+                                <div class="post-content" itemprop="articleBody">
+                                    github：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题更新时间：2018-07-16更新内容：用户可以在后台管理中新增备案号、添加自定义样式、添加自定义脚本等内容...
+                                </div>
+                            </div>
+                            <div class="col-md-12 post-meta">
+                                <ul class="">
+                                    <li>时间： <time datetime="2018-07-16T23:39:00+08:00" itemprop="datePublished">2018-07-16</time></li>
+                                    <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                                    <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                                    <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/34/#comments">0 条评论</a></li>
+                                    <li class="float-right">
+                                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/34/" class="float-right">阅读全文</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3><a class="title-link" itemprop="url" title="[更新] 修复分页 ... 省略号显示问题" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/31/">[更新] 修复分页 ... 省略号显示问题</a></h3>
+                            </div>
+                            <div class="col-md-4 ">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/31/">
+                                    <img src="./BootstrapBlog 主题_files/3585149245.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <!--                   <hr>-->
+                                <div class="post-content" itemprop="articleBody">
+                                    github：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题问题由于 textTag 设置成了 span，导致分页显示错误。涉及的文件：comments.phpinde...
+                                </div>
+                            </div>
+                            <div class="col-md-12 post-meta">
+                                <ul class="">
+                                    <li>时间： <time datetime="2018-07-15T23:18:00+08:00" itemprop="datePublished">2018-07-15</time></li>
+                                    <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                                    <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                                    <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/31/#comments">1 条评论</a></li>
+                                    <li class="float-right">
+                                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/31/" class="float-right">阅读全文</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <nav aria-label="Page navigation ">
+                        <ul class="pagination"><li class="active"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/page/1/">1</a></li><li><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/page/2/">2</a></li><li class="next"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/page/2/">»</a></li></ul>
+                    </nav>
+                </div><!-- end #main-->
+                <div class="col-md-4 kit-hidden-tb" id="secondary" role="complementary">
+
+                    <!-- 边栏显示最近文章，默认注释掉 -->
+                    <!-- 边栏显示最近回复，默认开启 -->
+                    <section class="widget">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-info"><span>最近回复</span></li>
+                            <li class="list-group-item comment-item"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/comment-page-1#comment-77">echo</a>： 为啥我的页面代码没有高亮显示，我是0.9版的，php5.3</li>
+                            <li class="list-group-item comment-item"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/comment-page-1#comment-76">test</a>： 111</li>
+                            <li class="list-group-item comment-item"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/comment-page-1#comment-75">test</a>： test</li>
+                        </ul>
+                    </section>
+
+                    <!-- 边栏显示文章分类 默认开启-->
+                    <!-- 边栏显示归档，默认注释掉 -->
+                    <!--    边栏显示其他操作，默认开启-->
+                    <section class="widget">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-info"><span>其他</span></li>
+                            <li class="list-group-item"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/admin/login.php">登录</a></li>
+                            <li class="list-group-item"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/">文章 RSS</a></li>
+                            <li class="list-group-item"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/comments/">评论 RSS</a></li>
+                        </ul>
+                    </section>
+
+                    <!-- 边栏显示友情链接，默认注释掉 -->
+                    <!--    <section class="widget">-->
+                    <!--        <ul class="list-group">-->
+                    <!--            <li class="list-group-item list-group-item-info"><span>--><!--</span></li>-->
+                    <!--            <li class="list-group-item"><a target="_blank" href="" title="">友情链接名称</a></li>-->
+                    <!--        </ul>-->
+                    <!--    </section>-->
+                </div><!-- end #sidebar -->
+                <a class="to-top" style="z-index: 1200; cursor: pointer; position: fixed; right: 15px; bottom: 30px; display: none;">
+                    <img src="./BootstrapBlog 主题_files/top.svg" alt="返回顶部" title="返回顶部">
+                </a>
+
+
+                <!-- 用户自定义脚本内容 -->
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <footer id="footer" role="contentinfo">
+                        © 2018 <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/">BootstrapBlog 主题</a>.
+                        <a target="_blank" href="http://www.miitbeian.gov.cn/">鲁ICP备16034533号-1</a> .
+                        由 <a href="http://www.typecho.org/" target="_blank">Typecho</a> 强力驱动.
+                        Theme by  <a href="http://www.ptbird.cn/" target="_blank">Postbird</a>.
+                    </footer><!-- end #footer -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

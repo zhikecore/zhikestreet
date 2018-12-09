@@ -1,0 +1,459 @@
+﻿
+<script src="~/scripts/Home/jquery.twbsPagination.js"></script>
+
+
+<!---hotel combo tpl-->
+<script id="article-main-tpl" type="text/x-jquery-tmpl">
+    <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>
+                    <a class="title-link" itemprop="url" title="${Title}" href="/Home/Detail/${Id}/">
+
+                        {{if IsUp}}
+                        <span style="color:red">
+                            [置顶]
+                        </span>${Title}
+                        {{else}}
+                        ${Title}
+                        {{/if}}
+                    </a>
+                </h3>
+            </div>
+            <div class="col-md-4 ">
+                <a href="/Home/Detail/${Id}/">
+                    <img src="${Cover}" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                </a>
+            </div>
+            <div class="col-md-8">
+                <!--                   <hr>-->
+                <div class="post-content" itemprop="articleBody">
+                    ${Summary}
+                </div>
+            </div>
+            <div class="col-md-12 post-meta">
+                <ul class="">
+                    <li>时间： <time datetime="${Helpers.JsonDateFormat(CreateTime)}" itemprop="datePublished">${Helpers.JsonDateFormat(CreateTime)}</time></li>
+                    <li itemprop="author" itemscope="" itemtype="#">作者： <a itemprop="name" href="#" rel="author">${Author}</a></li>
+                    <li>分类： <a href="#">${ArticleTypeName}</a></li>
+                    <li itemprop="interactionCount"><a itemprop="discussionUrl" href="#" title="浏览"><i class="icon-eye-open"></i>:${ ScanNum } </a></li>
+                    <li itemprop="interactionCount"><a itemprop="discussionUrl" href="#" title="赞"><i class="icon-thumbs-up"></i>:${ LikeNum }</a></li>
+                    <li itemprop="interactionCount"><a itemprop="discussionUrl" href="#" title="评论"><i class="icon-comment"></i>:${ CommentNum }</a></li>
+                    <li class="float-right">
+                        <a href="/Home/Detail/${Id}/" class="float-right">阅读全文</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </article>
+</script>
+
+
+<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+
+<style>
+    /* Make the image fully responsive */
+    .carousel-inner img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<div class="row">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- 指示符 -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- 轮播图片 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="http://static.runoob.com/images/mix/img_fjords_wide.jpg">
+                <div class="carousel-caption">
+                    <h3>Python很简单??</h3>
+                    <p>对于Python来说，一直有个误区，那就是「Python很简单」。!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="http://static.runoob.com/images/mix/img_nature_wide.jpg">
+                <div class="carousel-caption">
+                    <h3>皮克斯总动员：十九座奥斯卡背后的故事</h3>
+                    <p>在一个个荒诞有趣的故事里，皮克斯创造了新的童话!在一个个荒诞有趣的故事里，皮克斯创造了新的童话!在一个个荒诞有趣的故事里，皮克斯创造了新的童话!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
+                <div class="carousel-caption">
+                    <h3>第三张图片描述标题</h3>
+                    <p>描述文字!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 左右切换按钮 -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-xs-12 " id="main" role="main">
+        @*<article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3><a class="title-link" itemprop="url" title="基于Bootstrap4的 响应式 typecho 博客主题" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/"><span style="color:red">[置顶] </span>基于Bootstrap4的 响应式 typecho 博客主题</a></h3>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/">
+                            <img src="./BootstrapBlog 主题_files/3593023988.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <!--                   <hr>-->
+                        <div class="post-content" itemprop="articleBody">
+                            github 地址：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题一、主题说明1、依赖jquery 2.1.4bootstrap 4markdown.css  ， 优化...
+                        </div>
+                    </div>
+                    <div class="col-md-12 post-meta">
+                        <ul class="">
+                            <li>时间： <time datetime="2018-07-15T21:33:00+08:00" itemprop="datePublished">2018-07-15</time></li>
+                            <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                            <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                            <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/#comments">17 条评论</a></li>
+                            <li class="float-right">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/21/" class="float-right">阅读全文</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </article>
+            <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3><a class="title-link" itemprop="url" title="[更新] 修复 archive.php 页面分页问题" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/42/">[更新] 修复 archive.php 页面分页问题</a></h3>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/42/">
+                            <img src="./BootstrapBlog 主题_files/1982966592.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <!--                   <hr>-->
+                        <div class="post-content" itemprop="articleBody">
+                            github：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题更新时间2018-07-19更新内容：修复 archive.php 模板页面的分页显示问题。涉及的博客页面包...
+                        </div>
+                    </div>
+                    <div class="col-md-12 post-meta">
+                        <ul class="">
+                            <li>时间： <time datetime="2018-07-19T00:36:00+08:00" itemprop="datePublished">2018-07-19</time></li>
+                            <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                            <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                            <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/42/#comments">0 条评论</a></li>
+                            <li class="float-right">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/42/" class="float-right">阅读全文</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </article>
+            <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3><a class="title-link" itemprop="url" title="[更新] 修复 post 页面版权显示问题" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/38/">[更新] 修复 post 页面版权显示问题</a></h3>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/38/">
+                            <img src="./BootstrapBlog 主题_files/4173586961.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <!--                   <hr>-->
+                        <div class="post-content" itemprop="articleBody">
+                            github：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题更新时间2018-07-19更新内容：修复原来文章页面 post.php 下 版权显示问题。之前由于失误，将...
+                        </div>
+                    </div>
+                    <div class="col-md-12 post-meta">
+                        <ul class="">
+                            <li>时间： <time datetime="2018-07-19T00:31:00+08:00" itemprop="datePublished">2018-07-19</time></li>
+                            <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                            <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                            <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/38/#comments">0 条评论</a></li>
+                            <li class="float-right">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/38/" class="float-right">阅读全文</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </article>
+            <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3><a class="title-link" itemprop="url" title="[更新] 增加后台控制是否启用公共 CDN 链接" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/36/">[更新] 增加后台控制是否启用公共 CDN 链接</a></h3>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/36/">
+                            <img src="./BootstrapBlog 主题_files/1846441881.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <!--                   <hr>-->
+                        <div class="post-content" itemprop="articleBody">
+                            github：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题更新时间2018-07-16更新内容：用户可以在 控制台 -&gt; 外观 -&gt; 设置外观 设置是否开...
+                        </div>
+                    </div>
+                    <div class="col-md-12 post-meta">
+                        <ul class="">
+                            <li>时间： <time datetime="2018-07-16T23:43:00+08:00" itemprop="datePublished">2018-07-16</time></li>
+                            <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                            <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                            <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/36/#comments">0 条评论</a></li>
+                            <li class="float-right">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/36/" class="float-right">阅读全文</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </article>
+            <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3><a class="title-link" itemprop="url" title="[更新] 增加用户自定义备案号、样式和脚本功能" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/34/">[更新] 增加用户自定义备案号、样式和脚本功能</a></h3>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/34/">
+                            <img src="./BootstrapBlog 主题_files/4038731483.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <!--                   <hr>-->
+                        <div class="post-content" itemprop="articleBody">
+                            github：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题更新时间：2018-07-16更新内容：用户可以在后台管理中新增备案号、添加自定义样式、添加自定义脚本等内容...
+                        </div>
+                    </div>
+                    <div class="col-md-12 post-meta">
+                        <ul class="">
+                            <li>时间： <time datetime="2018-07-16T23:39:00+08:00" itemprop="datePublished">2018-07-16</time></li>
+                            <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                            <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                            <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/34/#comments">0 条评论</a></li>
+                            <li class="float-right">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/34/" class="float-right">阅读全文</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </article>
+            <article class="post-wrapper" itemscope="" itemtype="http://schema.org/BlogPosting">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3><a class="title-link" itemprop="url" title="[更新] 修复分页 ... 省略号显示问题" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/31/">[更新] 修复分页 ... 省略号显示问题</a></h3>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/31/">
+                            <img src="./BootstrapBlog 主题_files/3585149245.jpg" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <!--                   <hr>-->
+                        <div class="post-content" itemprop="articleBody">
+                            github：基于 bootstrap 4 开发的 typecho 响应式两栏博客主题问题由于 textTag 设置成了 span，导致分页显示错误。涉及的文件：comments.phpinde...
+                        </div>
+                    </div>
+                    <div class="col-md-12 post-meta">
+                        <ul class="">
+                            <li>时间： <time datetime="2018-07-15T23:18:00+08:00" itemprop="datePublished">2018-07-15</time></li>
+                            <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">作者： <a itemprop="name" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/author/1/" rel="author">admin</a></li>
+                            <li>分类： <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/">PHP</a></li>
+                            <li itemprop="interactionCount"><a itemprop="discussionUrl" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/31/#comments">1 条评论</a></li>
+                            <li class="float-right">
+                                <a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/archives/31/" class="float-right">阅读全文</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </article>*@
+
+        <div id="list_articles">
+
+        </div>
+
+        <nav aria-label="Page navigation ">
+            @*<ul class="pagination"><li class="active"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/page/1/">1</a></li><li><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/page/2/">2</a></li><li class="next"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/page/2/">»</a></li></ul>*@
+            <ul class="pagination" id="pagination"></ul>
+        </nav>
+    </div><!-- end #main-->
+    <div class="col-md-4 kit-hidden-tb" id="secondary" role="complementary">
+
+        <!-- 边栏显示最近文章，默认注释掉 -->
+        <!-- 边栏显示最近回复，默认开启 -->
+        <section class="widget">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-info"><span>最近回复</span></li>
+                <li class="list-group-item comment-item"><a href="#">artech</a>：排版不错</li>
+                <li class="list-group-item comment-item"><a href="#">一线码农</a>： 666</li>
+                <li class="list-group-item comment-item"><a href="#">JeffWong</a>： 赞！</li>
+            </ul>
+        </section>
+
+        <!-- 边栏显示文章分类 默认开启-->
+        <!-- 边栏显示归档，默认注释掉 -->
+        <!--    边栏显示其他操作，默认开启-->
+        <section class="widget">
+            <ul class="list-group">
+                @*<li class="list-group-item list-group-item-info"><span>其他</span></li>
+                <li class="list-group-item"><a href="http://theme.typecho.ptbird.cn/bootstrap-blog/admin/login.php">登录</a></li>*@
+                <li class="list-group-item"><a href="#">文章 RSS</a></li>
+                <li class="list-group-item"><a href="#">评论 RSS</a></li>
+            </ul>
+        </section>
+
+        <!-- 边栏显示友情链接，默认注释掉 -->
+        <!--    <section class="widget">-->
+        <!--        <ul class="list-group">-->
+        <!--            <li class="list-group-item list-group-item-info"><span>--><!--</span></li>-->
+        <!--            <li class="list-group-item"><a target="_blank" href="" title="">友情链接名称</a></li>-->
+        <!--        </ul>-->
+        <!--    </section>-->
+    </div><!-- end #sidebar -->
+    <a class="to-top" style="z-index: 1200; cursor: pointer; position: fixed; right: 15px; bottom: 30px; display: none;">
+        <img src="~/assets/img/top.svg" alt="返回顶部" title="返回顶部">
+    </a>
+
+    <!-- 用户自定义脚本内容 -->
+</div>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        initUserlogData();
+
+        $('#btnGlobalSearch').click(function () {
+
+            //重置分页组件否则保留上次查询的，一般来说很多问题出现与这三行代码有关如：虽然数据正确但是页码不对仍然为上一次查询出的一致
+            $('#pagination').empty();
+            $('#pagination').removeData("twbs-pagination");
+            $('#pagination').unbind("page");
+            //设置默认当前页
+            var pagenow = 1;
+            //设置默认总页数
+            var totalPage = 1;
+            //设置默认可见页数
+            var visiblecount = 7;
+            //加载后台数据页面
+            //每页显示条数
+            var counts = 10;
+
+            loaddata(pagenow, counts, visiblecount);
+        })
+    })
+
+
+    function initUserlogData() {
+        //重置分页组件否则保留上次查询的，一般来说很多问题出现与这三行代码有关如：虽然数据正确但是页码不对仍然为上一次查询出的一致
+        $('#pagination').empty();
+        $('#pagination').removeData("twbs-pagination");
+        $('#pagination').unbind("page");
+        //设置默认当前页
+        var pagenow = 1;
+        //设置默认总页数
+        var totalPage = 1;
+        //设置默认可见页数
+        var visiblecount = 7;
+        //加载后台数据页面
+        //每页显示条数
+        var counts = 10;
+
+        
+
+        //函数初始化是调用内部函数
+        loaddata(pagenow, counts, visiblecount);
+    }
+    //initUserlogData();
+    function loaddata(pagenow, counts, visiblecount) {
+        $.ajax({
+            //url = http://imoocnote.calfnote.com/inter/getClasses.php?curPage=1
+            url: "/Home/GetArticles",
+            type: "get",
+            data: {
+                "curPage": pagenow,
+                "pagesize": counts,
+                "key": $('#globalSearch').val(),
+            },
+            dataType: "json",
+            beforeSend: function (jqXHR) {
+                //loadingNo();
+                //jqXHR.setRequestHeader('secretKey', key);
+                //jqXHR.setRequestHeader('appKey', 'appKey');
+            },
+            success: function (data) {
+                $('#total').text('共' + data.totalCount + '条');
+                var totalCount = data.totalCount;
+                $('#render-div').empty();
+                var html = '';
+                if (data && data.data && data.data.length > 0) {
+                    //计算页码数
+                    totalCount = data.totalCount;//总条数
+                    var total_page = totalCount / counts;//计算总页码
+                    totalPage = (parseInt(total_page) == total_page) ? parseInt(total_page) : parseInt(total_page) + 1;
+                    //遍历渲染数据
+                    /*$.each(data.data, function (i, v) {
+                        html += '<div class="col-md-3">' +
+                            //'<img src="' + v.image + '" alt="' + v.title + '">' +
+                            '<h4 style="height: 32px;">' + v.title + '</h4>' +
+                            '<p style="height: 32px;">' + v.subtitle + '</p>' +
+                            '<p style="height: 32px;">' + v.timespan + '</p>' +
+                            '</div>';
+                    });*/
+
+                    $('#list_articles').html('');
+                    //var html=template('weather',data);
+                    //$("#info").html(html);
+                    $('#article-main-tpl').tmpl(data.data).appendTo('#list_articles');
+
+                }
+                //$('#render-div').append(html);
+
+                //后台总页数与可见页数比较如果小于可见页数则可见页数设置为总页数，
+                if (totalPage < visiblecount) {
+                    visiblecount = totalPage;
+                }
+                $('#pagination').twbsPagination({
+                    totalPages: totalPage,
+                    visiblePages: visiblecount,
+                    version: '1.1',
+                    first: "首页",
+                    prev: "下一页",
+                    next: "上一页",
+                    last: "尾页",
+                    //页面点击时触发事件
+                    onPageClick: function (event, page) {
+                        // 将当前页数重置为page
+                        pagenow = page;
+                        //调用后台获取数据函数加载点击的页码数据
+                        loaddata(pagenow, counts, visiblecount);
+                    }
+                });
+            },
+            error: function (e) {
+                alert("数据访问失败")
+            }
+        });
+    }
+</script>

@@ -1,0 +1,152 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:运维自动化平台实践之路</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="-">运维自动化平台之路</h1>
+<hr>
+<h2 id="-">导读</h2>
+<ul>
+<li>引</li>
+<li>什么是运维</li>
+<li>自动化运维体系</li>
+<li>后记</li>
+</ul>
+<hr>
+<h2 id="-">引</h2>
+<blockquote>
+<p>&#160; &#160; &#160;&#160; 
+运维自动化已经不再是新鲜名词,特别是随着Devops思想的影响下,越来越多的互联网产品公司已经开始搭建属于自己的运维自动化平台,甚至个别公司已经走在了AIDevOps实践的路上。那么,运维自动化的到底是什么,为什么需要自动化？如何落地呢?
+&#160; &#160; &#160;&#160; 当然本文是基于中小型互联网公司自动化平台实践,大型公司的自动化不在讨论之列。另外,由于涉及数据安全等原因,每个公司都趋向于搭建各自的自动化运维体系,仁者见仁,智者见智。</p>
+</blockquote>
+<hr>
+<h2 id="-">什么是运维</h2>
+<p>&emsp;&emsp; 
+在不同的企业中，关于运维的这个岗位的理解也有很多不同。有的说是网管、有的说是搞网络相关的、有的说是搞机房监控相关的、有的说负责备份与上线的、也有的说是写脚本和程序的，还有的人说是专业背锅的，其实所有的理解都是都对，这些都属于运维工作的一部分，只不过是不同层次、不同岗位的人负责而已，每一项技术都可以说是运维工作，所以不能否认任何人对运维的理解。
+&emsp;&emsp; 运维的主要工作职责是保障业务的正常运行,不断的更新和提高产品技术的稳定性和安全性。运维部与研发部、测试部和系统管理部门统称为互联网产品技术支撑的四大部门。运维部门又可以大方向的分为：业务实施、应用实施、架构实施、自动化实施和安全管理实施。运维工程师是集合网络、系统、安全、监控、日志、数据、脚本、程序、虚拟化、云计算和集群分布式等所有技术为一体的自动化、结构化、智能化和全面化的岗位</p>
+<ul>
+<li><strong>传统运维</strong></li>
+</ul>
+<p>&emsp;&emsp;传统运维部门在制订IT设备和信息化系统管理目标时，关注的是一台台IT设备的故障率和一套套应用系统的可用性，在基础设施、数据库、中间件、灾备、存储等环节通常大量采用商业闭源的软硬件产品及其解决方案，设备的开放性差、标准也不统一，管理时遵循严格的ITIL管理体系，喜欢采用两地三中心这种典型的重量级、集中式运维管理方式。 </p>
+<p>&emsp;&emsp;随着IT规模越来越大、系统越来越复杂，运维保障工作由最初的硬件运维不断细分，网络工程师、系统运维工程师、DBA、安全工程师等岗位加入到运维体系中。</p>
+<p>&emsp;&emsp;当业务系统发生故障时，IT主管首先召集自扫门前雪的各个运维岗位进行自检，查看各自负责的设备、应用组件、系统是否运行正常。</p>
+<p>&emsp;&emsp;所以，传统运维部门常常被称为“救火”队员，依靠人工巡检的工作方式，不但工作被动，而且效率低下。</p>
+<ul>
+<li><strong>互联网运维</strong></li>
+</ul>
+<p>&emsp;&emsp; 到了互联网时代，一切以互联网为核心，IT的边界被完全打开，IT系统不再是为企业内部管理提供支撑，而是为亿万互联网用户提供各种线上服务。因此，IT部门成为了互联网企业的核心，而保障线上业务持续、稳定运行，也是互联网企业的第一使命。</p>
+<p>&emsp;&emsp;互联网运维最关注互联网用户体验，重视响应时间、可用率等性能指标，常常会要求系统可用性达到四个九。因此，互联网运维在基础设施、数据库、中间件、分布式存储、自动化部署等环节通常大量采用开源或基于SaaS的自动化运维监控工具，如Zabbix、Nagios和云智慧监控宝等，这些产品的横向扩展能力很强，具有分布式、轻量级、模块化、去中心化等特点。</p>
+<p>&emsp;&emsp;故障发生时，要求互联网运维能够第一时间发现问题，并快速定位问题。依靠人工巡检的传统运维管理方式严重落后，因此,自动化运维逐渐流行。这就对互联网运维工程师的开发能力提出了更高的要求，熟悉Python之类的脚本语言只是基础，玩得转各种开源监控系统，能够根据业务特点和企业需求定制开发自动化监控和告警工具。</p>
+<p>&emsp;&emsp;这一时期，运维和开发之间的边界变得模糊起来，DevOps成为互联网产品从开发到上线维护的新选择。同时,传统运维部门已经开始组建专业的运维开发团队来支撑自动化体系平台的搭建。运维人员也将通过自动化平台来完成服务器操作,从手工运维到自动化,到无人值守。</p>
+<hr>
+<h2 id="-">自动化运维体系</h2>
+<p>&emsp;&emsp;以下是笔者针对公司某个阶段运维场景整合的自动化体系(公司处于快速成长期),这里仅供参考：</p>
+<p><img src="http://ou71ojlz3.bkt.clouddn.com/%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B9%B3%E5%8F%B0.png" alt="自动化运维体系"></p>
+<ul>
+<li>&emsp;&emsp;运维体系采用自建服务器+云服务模式</li>
+<li>&emsp;&emsp;ETCP基础数据管理中心</li>
+<li>&emsp;&emsp;工单系统属于一个平台+工具套件,从入口到终端,实现一条龙运维。</li>
+<li>&emsp;&emsp;同时还有多种监控报警体系,实现人机互动,事前可预知,事后可追溯。</li>
+<li>&emsp;&emsp;平台的建立,解放运维,让更多相关人进入系统,基本实现自助式,自动化运维。</li>
+<li>&emsp;&emsp;不断整合,形成一个平台,让运维工作更聚焦。</li>
+</ul>
+<p>&emsp;&emsp;一幅小图,旨在抛砖引玉。往往看似简单的道理,每一点进步都或背后大量精细的的实践。其中涉及的技术和细节也是蛮多的多种主流操作系统,数据库,云平台,开发语言,安全，架构，算法等...</p>
+<p>以下是平台的截图,可以吐槽一下，哈哈
+<img src="http://ou71ojlz3.bkt.clouddn.com/%E5%B7%A5%E5%8D%952.png" alt="自动化运维体系"></p>
+<p><img src="http://ou71ojlz3.bkt.clouddn.com/%E5%B7%A5%E5%8D%951.png" alt="自动化运维体系"></p>
+<h2 id="-">运维知识体系</h2>
+<p>&emsp;&emsp;这是一位互联网运维老兵总结的运维知识体系,感谢他的分享,希望对新人有所帮助。</p>
+<p><img src="http://ou71ojlz3.bkt.clouddn.com/%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB.png" alt="自动化运维体系"></p>
+<p><a href="http://47.104.128.14:3721/Content/devops/%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB.htm">http://47.104.128.14:3721/Content/devops/%E8%BF%90%E7%BB%B4%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB.htm</a></p>
+<h2 id="-">任重道远</h2>
+<p>&emsp;&emsp;坊间此前流行一句话,&quot;能程序完成的事情尽量不要用人去干&quot;。运维自动化道路并不是一帆风顺的,很多时候是需要自己造轮子。 每个公司发展状况不同,并且涉及各自公司的隐私,基本都有定制化的成分，你所要的工具网上可能都会有相关开源项目,但是需要自己整合到体系中。
+自动化的下一步是智能化,未来还有更多的路要走。</p>
+<h2 id="-">后记</h2>
+<p>&emsp;&emsp;鲁迅说过:&quot;世界上本没有路,走的人多了,也就变成了路。&quot;想做一个统一的运维自动化平台的产品或许不太可能, 但是做一点表准化自动化插件或者小工具,是有可能的,这个其实也是商机,你做到了,这条路便可以走的更远。</p>
+<p><img src="http://ou71ojlz3.bkt.clouddn.com/%E8%BF%90%E7%BB%B4%E4%BA%BA.png" alt="自动化运维体系"></p>
+<p>据说今天是724运维日,祝各位互联网的幕后英雄节日快乐！</p>
+<p><img src="http://ou71ojlz3.bkt.clouddn.com/%E7%A0%81%E5%86%9C%E5%95%86%E4%B8%9A%E5%8F%82%E8%B0%8B%20%282%29.jpg" alt="自动化运维体系">    </p>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
