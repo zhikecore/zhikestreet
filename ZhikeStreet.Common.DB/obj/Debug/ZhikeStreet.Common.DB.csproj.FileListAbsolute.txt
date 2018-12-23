@@ -11,3 +11,11 @@ C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Co
 C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.csproj.CopyComplete
 C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.dll
 C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.pdb
+E:\Projects\ZhikeFun\zhikestreet\ZhikeStreet.Common.DB\bin\Debug\ZhikeStreet.Common.DB.dll
+E:\Projects\ZhikeFun\zhikestreet\ZhikeStreet.Common.DB\bin\Debug\ZhikeStreet.Common.DB.pdb
+E:\Projects\ZhikeFun\zhikestreet\ZhikeStreet.Common.DB\bin\Debug\MySql.Data.dll
+E:\Projects\ZhikeFun\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.csprojAssemblyReference.cache
+E:\Projects\ZhikeFun\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.csproj.CoreCompileInputs.cache
+E:\Projects\ZhikeFun\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.csproj.CopyComplete
+E:\Projects\ZhikeFun\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.dll
+E:\Projects\ZhikeFun\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.pdb
