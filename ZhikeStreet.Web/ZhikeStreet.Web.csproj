@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -654,6 +655,7 @@
     <Content Include="Lib\SysInfoManager.dll" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\Category\Detail.js" />
     <Content Include="scripts\helper.js" />
     <Content Include="scripts\Home\jquery.twbsPagination.js" />
     <Content Include="scripts\jquery.tmpl.js" />
