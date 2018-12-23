@@ -34,10 +34,12 @@ namespace ZhikeStreet.Web.Controllers
 
         private string Transform()
         {
+            /*
             string mkStr = @"";
             Markdown mk = new Markdown();
             string html=mk.Transform(mkStr);
-            return html;
+            return html;*/
+            return String.Empty;
         }
 
 

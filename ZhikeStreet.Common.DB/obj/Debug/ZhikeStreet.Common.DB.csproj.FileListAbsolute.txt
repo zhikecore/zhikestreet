@@ -4,3 +4,10 @@ E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.DB\bin\Debug\MySql.Data.d
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.dll
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.pdb
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.csprojResolveAssemblyReference.cache
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\bin\Debug\ZhikeStreet.Common.DB.dll
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\bin\Debug\ZhikeStreet.Common.DB.pdb
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\bin\Debug\MySql.Data.dll
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.csproj.CoreCompileInputs.cache
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.csproj.CopyComplete
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.dll
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.DB\obj\Debug\ZhikeStreet.Common.DB.pdb

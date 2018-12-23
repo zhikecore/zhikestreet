@@ -23,3 +23,12 @@ E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\obj\Debug\ZhikeSt
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\obj\Debug\ZhikeStreet.Common.Utility.pdb
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\bin\Debug\Config\log4net.config
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\obj\Debug\ZhikeStreet.Common.Utility.csprojResolveAssemblyReference.cache
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.Utility\bin\Debug\Config\log4net.config
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.Utility\bin\Debug\ZhikeStreet.Common.Utility.dll
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.Utility\bin\Debug\ZhikeStreet.Common.Utility.pdb
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.Utility\bin\Debug\log4net.dll
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.Utility\bin\Debug\log4net.xml
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.Utility\obj\Debug\ZhikeStreet.Common.Utility.csproj.CoreCompileInputs.cache
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.Utility\obj\Debug\ZhikeStreet.Common.Utility.csproj.CopyComplete
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.Utility\obj\Debug\ZhikeStreet.Common.Utility.dll
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Common.Utility\obj\Debug\ZhikeStreet.Common.Utility.pdb

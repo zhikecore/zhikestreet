@@ -3,3 +3,8 @@ E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Models\bin\Debug\ZhikeStreet.Mod
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Models\obj\Debug\ZhikeStreet.Models.dll
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Models\obj\Debug\ZhikeStreet.Models.pdb
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Models\obj\Debug\ZhikeStreet.Models.csprojResolveAssemblyReference.cache
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Models\bin\Debug\ZhikeStreet.Models.dll
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Models\bin\Debug\ZhikeStreet.Models.pdb
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Models\obj\Debug\ZhikeStreet.Models.csproj.CoreCompileInputs.cache
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Models\obj\Debug\ZhikeStreet.Models.dll
+C:\Projects\ZhiKeFang\zhikestreet\ZhikeStreet.Models\obj\Debug\ZhikeStreet.Models.pdb
