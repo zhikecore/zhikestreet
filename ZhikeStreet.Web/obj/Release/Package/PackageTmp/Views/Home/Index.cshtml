@@ -263,25 +263,6 @@
             </ul>
         </section>
 
-
-
-        <!-- 边栏显示文章分类 默认开启-->
-        <!-- 边栏显示归档，默认注释掉 -->
-        <!--    边栏显示其他操作，默认开启-->
-        @*<section class="widget">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="#">文章 RSS</a></li>
-                    <li class="list-group-item"><a href="#">评论 RSS</a></li>
-                </ul>
-            </section>*@
-
-        <!-- 边栏显示友情链接，默认注释掉 -->
-        <!--    <section class="widget">-->
-        <!--        <ul class="list-group">-->
-        <!--            <li class="list-group-item list-group-item-info"><span>--><!--</span></li>-->
-        <!--            <li class="list-group-item"><a target="_blank" href="" title="">友情链接名称</a></li>-->
-        <!--        </ul>-->
-        <!--    </section>-->
     </div><!-- end #sidebar -->
     <a class="to-top" style="z-index: 1200; cursor: pointer; position: fixed; right: 15px; bottom: 30px; display: none;">
         <img src="~/assets/img/top.svg" alt="返回顶部" title="返回顶部">
@@ -364,23 +345,11 @@
                     totalCount = data.totalCount;//总条数
                     var total_page = totalCount / counts;//计算总页码
                     totalPage = (parseInt(total_page) == total_page) ? parseInt(total_page) : parseInt(total_page) + 1;
-                    //遍历渲染数据
-                    /*$.each(data.data, function (i, v) {
-                        html += '<div class="col-md-3">' +
-                            //'<img src="' + v.image + '" alt="' + v.title + '">' +
-                            '<h4 style="height: 32px;">' + v.title + '</h4>' +
-                            '<p style="height: 32px;">' + v.subtitle + '</p>' +
-                            '<p style="height: 32px;">' + v.timespan + '</p>' +
-                            '</div>';
-                    });*/
-
+               
                     $('#list_articles').html('');
-                    //var html=template('weather',data);
-                    //$("#info").html(html);
                     $('#article-main-tpl').tmpl(data.data).appendTo('#list_articles');
 
                 }
-                //$('#render-div').append(html);
 
                 //后台总页数与可见页数比较如果小于可见页数则可见页数设置为总页数，
                 if (totalPage < visiblecount) {
@@ -391,8 +360,8 @@
                     visiblePages: visiblecount,
                     version: '1.1',
                     first: "首页",
-                    prev: "下一页",
-                    next: "上一页",
+                    prev: "上一页",
+                    next: "下一页",
                     last: "尾页",
                     //页面点击时触发事件
                     onPageClick: function (event, page) {

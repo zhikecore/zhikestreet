@@ -39,7 +39,6 @@
             oTable = $("#article_datatable").dataTable({
                 aoColumns: [
                   { mData: "Actions", sTitle: "操作", bSortable: false, sWidth: "15%" },
-                  //{ mData: 'Id', sTitle: "ID", sWidth: '8%' },
                   { mData: 'ArticleTypeName', sTitle: "文章类型", sWidth: '8%' },
                   { mData: 'Author', sTitle: "作者", sWidth: '8%' },
                   { mData: 'Tags', sTitle: "标签", sWidth: '8%' },
@@ -88,7 +87,6 @@
                           return '<a class="auto_div" style="text-decoration:none;color:black;" data-original-title="' + data + '" data-placement="bottom" data-rel="tooltip">' + shortdata + '</a>';
                       }
                   },
-                  //{ mData: 'HighlightDescription', sTitle: "描述plus", sWidth: '12%' },
                   { mData: 'CreateTime', sTitle: "创建日期", sWidth: 145 },
                   { mData: 'ModifyTime', sTitle: "修改日期", sWidth: 145 }
                 ],
@@ -158,8 +156,7 @@
                 },
                 iDisplayLength: 10
             });
-
-            //bindUserCombox('dp_user2');
+            
             bindArticleTypeCombox('dp_articleType2');
             bindTagsCombox('dp_tags2');
         }
