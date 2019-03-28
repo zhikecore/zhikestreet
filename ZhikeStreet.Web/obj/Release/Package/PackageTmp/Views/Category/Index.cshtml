@@ -10,40 +10,27 @@
             </div>
         </div>
         <div class="col-md-12 ">
-            <div class="page-wrapper">
-                <div class="categary-wrapper">
-                    <div class="categary-content" itemprop="articleBody">
-                        <div class="categary-list">
-                            @{
-                                foreach (ZhikeStreet.Models.VO.ArticleTypeViewModel item in this.Model)
-                                {
-                                    <div class="col-md-3 categary-item-wrapper">
-                                        <div class="categary-item">
-                                            <a class="categary-item-link" href="/Category/Detail/@item.Id"> @item.Name ·  (@item.ArticleCount)</a>
-                                        </div>
+            <section id="gallery" class="container">
+                <div class="row">
+                    @{
+                        foreach (ZhikeStreet.Models.VO.ArticleTypeViewModel item in this.Model)
+                        {
+                            <div class="col-lg-3 mb -4" style="margin-bottom:15px;">
+                                <div class="card">
+                                    <a href="/Category/Detail/@item.Id"><img class="card-img-top" src="~/assets/img/examples/programming_240x180.jpg" alt="Card image cap"></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title border-bottom pb-3">@item.Name ·  (@item.ArticleCount)<a href="/Category/Detail/@item.Id" class="float-right d-inline-flex share"><i class="fas fa-share-alt text-primary"></i></a></h5>
+                                        @*<p class="card-text">在知识</p>*@
+                                        <a class="btn btn-outline-success btn-sm" href="/Category/Detail/@item.Id">查看更多</a>
                                     </div>
-                                }
-                            }
+                                </div>
+                            </div>
+                        }
+                    }
 
-                            @*<div class="col-md-3 categary-item-wrapper">
-                                    <div class="categary-item">
-                                        <a class="categary-item-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/php/"> PHP ·  (8)</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 categary-item-wrapper">
-                                    <div class="categary-item">
-                                        <a class="categary-item-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/nodejs/"> nodejs ·  (3)</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 categary-item-wrapper">
-                                    <div class="categary-item">
-                                        <a class="categary-item-link" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/category/javascript/"> javascript ·  (0)</a>
-                                    </div>
-                                </div>*@
-                        </div>
-                    </div>
                 </div>
-            </div>
+            </section>
+            @*<hr />*@
         </div>
 
 
