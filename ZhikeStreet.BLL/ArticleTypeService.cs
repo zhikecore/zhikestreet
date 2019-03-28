@@ -65,7 +65,8 @@ namespace ZhikeStreet.BLL
                 {
                     Id = item.Id,
                     Name = item.Name,
-                    ArticleCount = count
+                    ArticleCount = count,
+                    Description=item.Description
                 };
                 views.Add(view);
             }

@@ -19,6 +19,9 @@ E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\bin\Release\zh-Ha
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\bin\Release\zh-Hans\System.Web.WebPages.Razor.resources.dll
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\bin\Release\zh-Hans\System.Web.WebPages.resources.dll
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\obj\Release\ZhikeStreet.Common.Utility.csprojResolveAssemblyReference.cache
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\obj\Release\ZhikeStreet.Common.Utility.dll
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Common.Utility\obj\Release\ZhikeStreet.Common.Utility.pdb
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.Common.Utility\bin\Release\Config\log4net.config
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.Common.Utility\obj\Release\ZhikeStreet.Common.Utility.csprojAssemblyReference.cache
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.Common.Utility\obj\Release\ZhikeStreet.Common.Utility.csproj.CoreCompileInputs.cache
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.Common.Utility\obj\Release\ZhikeStreet.Common.Utility.csproj.CopyComplete
