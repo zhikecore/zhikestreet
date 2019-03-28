@@ -1,0 +1,2 @@
+2019-03-27 09:44:29,413 [5] INFO  ZhikeStreet.Web.Controllers.AccountController - Account.Login.Account:admin@126.com,Password:123
+2019-03-27 09:44:29,598 [5] INFO  ZhikeStreet.Web.Controllers.AccountController - Account.Login.passwordsalt:2r4A7eEmhZg=,currentAdminUser.PasswordSalt:,currentAdminUser.Account:Admin@126.com

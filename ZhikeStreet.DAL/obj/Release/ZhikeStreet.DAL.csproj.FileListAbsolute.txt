@@ -26,6 +26,9 @@ E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.DAL\bin\Release\zh-Hans\System.W
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.DAL\bin\Release\zh-Hans\System.Web.WebPages.Razor.resources.dll
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.DAL\bin\Release\zh-Hans\System.Web.WebPages.resources.dll
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.DAL\bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.DAL\obj\Release\ZhikeStreet.DAL.csprojResolveAssemblyReference.cache
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.DAL\obj\Release\ZhikeStreet.DAL.dll
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.DAL\obj\Release\ZhikeStreet.DAL.pdb
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.DAL\bin\Release\Config\log4net.config
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.DAL\obj\Release\ZhikeStreet.DAL.csprojAssemblyReference.cache
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.DAL\obj\Release\ZhikeStreet.DAL.csproj.CoreCompileInputs.cache
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.DAL\obj\Release\ZhikeStreet.DAL.csproj.CopyComplete

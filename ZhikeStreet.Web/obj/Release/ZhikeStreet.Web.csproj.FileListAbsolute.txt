@@ -54,6 +54,9 @@ E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Web\bin\System.Web.Mvc.xml
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Web\bin\ZhikeStreet.DAL.pdb
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Web\bin\log4net.xml
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Web\bin\ZhikeStreet.Common.DB.pdb
-E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Web\obj\Release\ZhikeStreet.Web.csprojResolveAssemblyReference.cache
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Web\obj\Release\ZhikeStreet.Web.dll
 E:\Projects\ZhikeStreet\ZhikeStreet\ZhikeStreet.Web\obj\Release\ZhikeStreet.Web.pdb
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.Web\bin\Config\log4net.config
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.Web\obj\Release\ZhikeStreet.Web.csprojAssemblyReference.cache
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.Web\obj\Release\ZhikeStreet.Web.csproj.CoreCompileInputs.cache
+E:\Projects\ZhikeStreet\zhikestreet\ZhikeStreet.Web\obj\Release\ZhikeStreet.Web.csproj.CopyComplete

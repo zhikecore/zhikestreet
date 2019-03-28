@@ -8,12 +8,8 @@ function bindUserCombox(id) {
         data: null,
         async: false,
         success: function (json) {
-
-            //根据id查找对象，
             var obj = document.getElementById(id);
-
             $.each(json, function (i, o) {
-                //这个兼容IE与firefox
                 obj.options.add(new Option(o.Name, o.Id));
             });
 
@@ -90,8 +86,6 @@ function AddOrUpdate()
 
 //添加
 function Add() {
-    //var appTypeId = $('#dp_apptype2').val();
-    //var managerId = $('#dp_user2').val();
     var id = $('#Id').val();
     var realname = $('#RealName').val();
     var phone = $('#Phone').val();
