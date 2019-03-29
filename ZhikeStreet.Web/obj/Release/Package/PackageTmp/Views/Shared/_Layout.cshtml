@@ -179,98 +179,98 @@
                     <ul class="navbar-nav mr-auto">
 
                         @*<li class="nav-item">
-                            <a class="nav-link" href="/guest/index" title="控制台"><span>控制台</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" title="关于"><span>关于</span></a>
-                        </li>*@
+                                <a class="nav-link" href="/guest/index" title="控制台"><span>控制台</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" title="关于"><span>关于</span></a>
+                            </li>*@
                         @*@{
-                            var currentUser = Session[AccountConst.CurrentAdminUser] as AdminUser;
-                            if (currentUser == null)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/account/login" title="登陆"><span>登陆</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/account/register" title="注册"><span>注册</span></a>
-                                </li>
-                            }
-                            else if (currentUser != null)
-                            {
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle"
-                                       data-toggle="dropdown"
-                                       style="height: 60px">
-                                        <img alt="" class="topbar-user-avatar" src="@currentUser.Avatar" />
-                                        <span style="color: #FFFFFF;font-size: 15px">
-                                            <i>@currentUser.NickName</i>
-                                        </span>
-                                    </a>
-                                    <div class="dropdown-menu pull-right"
-                                         style="background: #FFFFFF;width: 320px;overflow: hidden">
-                                        <div style="margin-top: 16px;border-bottom: 1px solid #eeeeee">
-                                            <div style="text-align: center">
-                                                <img class="img-circle" src="@currentUser.Avatar"
-                                                     style="width: 38px;height: 38px;" />
+                                var currentUser = Session[AccountConst.CurrentAdminUser] as AdminUser;
+                                if (currentUser == null)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/account/login" title="登陆"><span>登陆</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/account/register" title="注册"><span>注册</span></a>
+                                    </li>
+                                }
+                                else if (currentUser != null)
+                                {
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle"
+                                           data-toggle="dropdown"
+                                           style="height: 60px">
+                                            <img alt="" class="topbar-user-avatar" src="@currentUser.Avatar" />
+                                            <span style="color: #FFFFFF;font-size: 15px">
+                                                <i>@currentUser.NickName</i>
+                                            </span>
+                                        </a>
+                                        <div class="dropdown-menu pull-right"
+                                             style="background: #FFFFFF;width: 320px;overflow: hidden">
+                                            <div style="margin-top: 16px;border-bottom: 1px solid #eeeeee">
+                                                <div style="text-align: center">
+                                                    <img class="img-circle" src="@currentUser.Avatar"
+                                                         style="width: 38px;height: 38px;" />
+                                                </div>
+                                                <div style="color: #323534;text-align: center;line-height: 36px;font-size: 15px">
+                                                    <span>@currentUser.NickName</span>
+                                                </div>
                                             </div>
-                                            <div style="color: #323534;text-align: center;line-height: 36px;font-size: 15px">
-                                                <span>@currentUser.NickName</span>
+
+                                            <div class="row" style="margin-left: 15px;margin-right: 15px;margin-top: 10px">
+                                                <div class="col-md-4 text-center grid">
+                                                    <i class="fa fa-user" style="font-size: 25px;line-height: 45px;"></i>
+                                                    <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                        个人中心
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 text-center grid">
+                                                    <i class="fa fa-gear" style="font-size: 25px;line-height: 45px;"></i>
+                                                    <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                        账号管理
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 text-center grid">
+                                                    <i class="fa fa-key" style="font-size: 25px;line-height: 45px;"></i>
+                                                    <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                        密码修改
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-left: 15px;margin-right: 15px;margin-top: 10px">
+                                                <div class="col-md-4 text-center grid">
+                                                    <i class="fa fa-user-circle" style="font-size: 25px;line-height: 45px;"></i>
+                                                    <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                        修改头像
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 text-center grid">
+                                                    <i class="fa fa-comments" style="font-size: 25px;line-height: 45px;"></i>
+                                                    <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                        消息
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 text-center grid">
+                                                    <i class="fa fa-heart-o" style="font-size: 25px;line-height: 45px;"></i>
+                                                    <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
+                                                        帮助中心
+                                                    </p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row" style="margin-top: 20px">
+                                                <a href="/account/logout" class="text-center" style="padding: 15px;margin: 0px;background: #f6f5f5;color: #323534;">
+                                                    <i class="icon-signout"></i>
+                                                    退出
+                                                </a>
                                             </div>
                                         </div>
-
-                                        <div class="row" style="margin-left: 15px;margin-right: 15px;margin-top: 10px">
-                                            <div class="col-md-4 text-center grid">
-                                                <i class="fa fa-user" style="font-size: 25px;line-height: 45px;"></i>
-                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
-                                                    个人中心
-                                                </p>
-                                            </div>
-                                            <div class="col-md-4 text-center grid">
-                                                <i class="fa fa-gear" style="font-size: 25px;line-height: 45px;"></i>
-                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
-                                                    账号管理
-                                                </p>
-                                            </div>
-                                            <div class="col-md-4 text-center grid">
-                                                <i class="fa fa-key" style="font-size: 25px;line-height: 45px;"></i>
-                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
-                                                    密码修改
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row" style="margin-left: 15px;margin-right: 15px;margin-top: 10px">
-                                            <div class="col-md-4 text-center grid">
-                                                <i class="fa fa-user-circle" style="font-size: 25px;line-height: 45px;"></i>
-                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
-                                                    修改头像
-                                                </p>
-                                            </div>
-                                            <div class="col-md-4 text-center grid">
-                                                <i class="fa fa-comments" style="font-size: 25px;line-height: 45px;"></i>
-                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
-                                                    消息
-                                                </p>
-                                            </div>
-                                            <div class="col-md-4 text-center grid">
-                                                <i class="fa fa-heart-o" style="font-size: 25px;line-height: 45px;"></i>
-                                                <p style="padding: 0px;margin-top: 6px;margin-bottom: 10px;font-size: 12px">
-                                                    帮助中心
-                                                </p>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row" style="margin-top: 20px">
-                                            <a href="/account/logout" class="text-center" style="padding: 15px;margin: 0px;background: #f6f5f5;color: #323534;">
-                                                <i class="icon-signout"></i>
-                                                退出
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                            }
-                        }*@
+                                    </li>
+                                }
+                            }*@
                     </ul>
 
                 </div>
@@ -317,6 +317,14 @@
 
     <script type="text/javascript">
         $(function () {
+
+            document.onkeyup = function (e) {
+                var code = e.charCode || e.keyCode;
+                if (code == 13) {
+                    window.location = '/home/index?key=' + $('#globalSearch').val();
+                }
+            }
+
             $(".dropdown").mouseover(function () {
                 $(this).addClass("open");
             });
@@ -324,6 +332,11 @@
             $(".dropdown").mouseleave(function () {
                 $(this).removeClass("open");
             })
+        })
+
+        $('#btnGlobalSearch').click(function () {
+
+            window.location = '/home/index?key=' + $('#globalSearch').val();
         })
     </script>
 </body>
