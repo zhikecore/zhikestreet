@@ -624,6 +624,7 @@
     <Content Include="Areas\Admins\Scripts\Article\index.js" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\footer.css" />
     <Content Include="assets\css\prism.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\font\fontawesome-webfont.svg" />
@@ -941,6 +942,8 @@
     <Content Include="Views\Category\Detail.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
     <Content Include="Views\Contribute\Index.cshtml" />
+    <Content Include="Views\Shared\_HeaderPartial.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -969,6 +972,9 @@
       <Project>{b80181cc-0b5e-401f-8c14-656c9b94875f}</Project>
       <Name>ZhikeStreet.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
