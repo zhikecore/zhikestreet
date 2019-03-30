@@ -15,6 +15,8 @@ namespace ZhikeStreet.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            var key = null == Request["key"] ? String.Empty : Request["key"].ToString();
+            ViewData["Key"] = key;
             List<Article> carousels = ArticleService.Instance.GetCarousels();
             return View(carousels);
         }
@@ -55,13 +57,10 @@ namespace ZhikeStreet.Web.Controllers
 
         public JsonResult GetArticles(int curPage,int pagesize,int categoryid, string key)
         {
-            //List<user> users = GetBySomeWhere();
-            //List<Article> articles = ArticleService.Instance.GetAll();
             int total = 0;
             int limit = (curPage - 1) * pagesize;
             var filters = ArticleService.Instance.GetBySomeWhere(key,limit,pagesize,categoryid, out total);
             List<ArticleViewModel> articleViews = ToNewFilters(filters);
-            //List<ArticleViewModel> vms = articleViews.Skip((curPage - 1)*pagesize).Take(pagesize).ToList();
 
             Object o = new
             {
