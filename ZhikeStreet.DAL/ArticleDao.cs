@@ -583,7 +583,7 @@ SET
 
                     if (!string.IsNullOrEmpty(keyword))
                     {
-                        strCmd += @" AND `Content` like " + string.Format("'%{0}%'", keyword);
+                        strCmd += @" AND `Title` like " + string.Format("'%{0}%'", keyword);
                     }
 
                     if (categoryid > 0)
@@ -633,7 +633,7 @@ SET
 
                     if (!String.IsNullOrEmpty(keyword))
                     {
-                        strCmd += @" AND `Content` LIKE '%" + keyword + "%'";
+                        strCmd += @" AND `Title` LIKE '%" + keyword + "%'";
                     }
 
                     if (categoryid > 0)

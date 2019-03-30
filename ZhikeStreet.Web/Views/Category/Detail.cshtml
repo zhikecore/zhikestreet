@@ -133,28 +133,27 @@ success: function (data) {
         $('#list_articles').html('');
         $('#article-main-tpl').tmpl(data.data).appendTo('#list_articles');
 
-    }
-
-    //后台总页数与可见页数比较如果小于可见页数则可见页数设置为总页数，
-    if (totalPage < visiblecount) {
-        visiblecount = totalPage;
-    }
-    $('#pagination').twbsPagination({
-        totalPages: totalPage,
-        visiblePages: visiblecount,
-        version: '1.1',
-        first: "首页",
-        prev: "上一页",
-        next: "下一页",
-        last: "尾页",
-        //页面点击时触发事件
-        onPageClick: function (event, page) {
-            // 将当前页数重置为page
-            pagenow = page;
-            //调用后台获取数据函数加载点击的页码数据
-            loaddata(pagenow, counts, visiblecount);
+        //后台总页数与可见页数比较如果小于可见页数则可见页数设置为总页数，
+        if (totalPage < visiblecount) {
+            visiblecount = totalPage;
         }
-    });
+        $('#pagination').twbsPagination({
+            totalPages: totalPage,
+            visiblePages: visiblecount,
+            version: '1.1',
+            first: "首页",
+            prev: "上一页",
+            next: "下一页",
+            last: "尾页",
+            //页面点击时触发事件
+            onPageClick: function (event, page) {
+                // 将当前页数重置为page
+                pagenow = page;
+                //调用后台获取数据函数加载点击的页码数据
+                loaddata(pagenow, counts, visiblecount);
+            }
+        });
+    }
 },
 error: function (e) {
     alert("数据访问失败")
