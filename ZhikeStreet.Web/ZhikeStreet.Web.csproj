@@ -692,6 +692,19 @@
     <Content Include="scripts\widget\markdown\toc\style\GitHub2.css" />
     <Content Include="scripts\widget\markdown\toc\style\makedownpad.css" />
     <Content Include="scripts\widget\markdown\toc_conf.js" />
+    <Content Include="scripts\widget\mkdocs\css\base.css" />
+    <Content Include="scripts\widget\mkdocs\css\bootstrap-custom.min.css" />
+    <Content Include="scripts\widget\mkdocs\css\font-awesome.min.css" />
+    <Content Include="scripts\widget\mkdocs\fonts\fontawesome-webfont.svg" />
+    <Content Include="scripts\widget\mkdocs\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="scripts\widget\mkdocs\img\favicon.ico" />
+    <Content Include="scripts\widget\mkdocs\img\grid.png" />
+    <Content Include="scripts\widget\mkdocs\js\base.js" />
+    <Content Include="scripts\widget\mkdocs\js\bootstrap-3.0.3.min.js" />
+    <Content Include="scripts\widget\mkdocs\js\jquery-1.10.2.min.js" />
+    <Content Include="scripts\widget\mkdocs\search\lunr.js" />
+    <Content Include="scripts\widget\mkdocs\search\main.js" />
+    <Content Include="scripts\widget\mkdocs\search\worker.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -934,6 +947,7 @@
     <Content Include="assets\font\fontawesome-webfont.woff" />
     <Content Include="assets\font\FontAwesome.otf" />
     <Content Include="Config\log4net.config" />
+    <Content Include="Areas\Admins\Views\AdminUser\Register.cshtml" />
     <None Include="Properties\PublishProfiles\ZhikeStreetConfig.pubxml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
@@ -944,6 +958,20 @@
     <Content Include="Views\Contribute\Index.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="scripts\widget\mkdocs\fonts\fontawesome-webfont.eot" />
+    <Content Include="scripts\widget\mkdocs\fonts\fontawesome-webfont.ttf" />
+    <Content Include="scripts\widget\mkdocs\fonts\fontawesome-webfont.woff" />
+    <Content Include="scripts\widget\mkdocs\fonts\fontawesome-webfont.woff2" />
+    <Content Include="scripts\widget\mkdocs\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\widget\mkdocs\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="scripts\widget\mkdocs\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="scripts\widget\mkdocs\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="scripts\widget\mkdocs\search\search_index.json" />
+    <Content Include="Views\Shared\_ArticleLayout.cshtml" />
+    <Content Include="Views\Default\Detail - 复制.cshtml" />
+    <Content Include="Views\Home\Detail - 复制.cshtml" />
+    <Content Include="Views\Shared\_ArticleHeaderPartial.cshtml" />
+    <Content Include="Views\Shared\_ArticleFooterPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1001,7 +1029,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

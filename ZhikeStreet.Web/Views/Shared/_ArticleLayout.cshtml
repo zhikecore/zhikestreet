@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 通过自有函数输出HTML头部信息 -->
+    <meta name="description" content="智客坊">
+    <meta name="keywords" content="互联网,大数据,C#,blog,hadoop,elasticsearch">
+
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>智客坊</title>
+    <link href="~/scripts/widget/mkdocs/css/bootstrap-custom.min.css" rel="stylesheet" />
+    <link href="~/scripts/widget/mkdocs/css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="~/scripts/widget/mkdocs/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/scripts/widget/mkdocs/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .navbar {
+            background-image: linear-gradient(#343a40,#343a40 60%,#343a40);
+            background-repeat: no-repeat;
+            border-bottom: 1px solid #343a40;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff54b4eb',endColorstr='#ff1d9ce5',GradientType=0);
+            filter: none;
+            box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+            border-color: !important #343a40;
+        }
+
+        nav > .active > a:focus {
+            color: #fff;
+            background-color: !important gray;
+        }
+
+        a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        body > .container {
+            min-height: 400px;
+        }
+
+        /*
+        * Footer
+        *
+        * Separated section of content at the bottom of all pages, save the homepage.
+        */
+
+        .bs-docs-footer {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            margin-top: 100px;
+            color: #99979c;
+            text-align: center;
+            background-color: #2a2730;
+        }
+
+            .bs-docs-footer a {
+                color: #fff;
+            }
+
+        .bs-docs-footer-links {
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+            .bs-docs-footer-links li {
+                display: inline-block;
+            }
+
+                .bs-docs-footer-links li + li {
+                    margin-left: 15px;
+                }
+
+        @@media (min-width: 768px) {
+            .bs-docs-footer {
+                text-align: left;
+            }
+
+                .bs-docs-footer p {
+                    margin-bottom: 0;
+                }
+        }
+    </style>
+
+    <script src="~/scripts/widget/mkdocs/js/jquery-1.10.2.min.js" defer></script>
+    <script src="~/scripts/widget/mkdocs/js/bootstrap-3.0.3.min.js" defer></script>
+    <script src="~/scripts/widget/mkdocs/js/jquery-1.10.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body class="homepage">
+
+    <!--navbar-->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            @Html.Partial("_ArticleHeaderPartial")
+        </div>
+    </div>
+
+    <div class="container">
+        @*<div class="col-md-3">
+                        <div class="bs-sidebar hidden-print affix well" role="complementary">
+                            <ul class="nav bs-sidenav">
+                                <li class="main active"><a href="#welcome-to-mkdocs">Welcome to MkDocs</a></li>
+                                <li><a href="#commands">Commands</a></li>
+                                <li><a href="#project-layout">Project layout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-9" role="main">
+
+                        <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
+                        <p>For full documentation visit <a href="https://mkdocs.org">mkdocs.org</a>.</p>
+                        <h2 id="commands">Commands</h2>
+                        <ul>
+                            <li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
+                            <li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
+                            <li><code>mkdocs build</code> - Build the documentation site.</li>
+                            <li><code>mkdocs help</code> - Print this help message.</li>
+                        </ul>
+                        <h2 id="project-layout">Project layout</h2>
+            <pre><code>mkdocs.yml    # The configuration file.
+            docs/
+                index.md  # The documentation homepage.
+                ...       # Other markdown pages, images and other files.
+            </code></pre>
+                    </div>*@
+
+        @RenderBody()
+    </div>
+
+    @Html.Partial("_ArticleFooterPartial")
+    <script>
+        var base_url = ".",
+            shortcuts = { "help": 191, "next": 78, "previous": 80, "search": 83 };
+    </script>
+    <script src="~/scripts/widget/mkdocs/js/base.js" defer></script>
+    <script src="~/scripts/widget/mkdocs/search/worker.js"></script>
+    <script src="~/scripts/widget/mkdocs/search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">搜索</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        请输入文章关键字
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 20%;">Keys</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="help shortcut"><kbd>?</kbd></td>
+                                    <td>Open this help</td>
+                                </tr>
+                                <tr>
+                                    <td class="next shortcut"><kbd>n</kbd></td>
+                                    <td>Next page</td>
+                                </tr>
+                                <tr>
+                                    <td class="prev shortcut"><kbd>p</kbd></td>
+                                    <td>Previous page</td>
+                                </tr>
+                                <tr>
+                                    <td class="search shortcut"><kbd>s</kbd></td>
+                                    <td>Search</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+</body>
+</html>
+

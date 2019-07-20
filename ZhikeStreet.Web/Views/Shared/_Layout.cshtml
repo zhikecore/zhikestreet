@@ -40,6 +40,7 @@
     <script src="~/scripts/jquery.tmpl.js"></script>
     <script src="~/scripts/helper.js"></script>
 
+
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -47,62 +48,68 @@
     <!-- 通过自有函数输出HTML头部信息 -->
     <meta name="description" content="智客坊">
     <meta name="keywords" content="互联网,大数据,C#,blog,hadoop,elasticsearch">
-    <meta name="generator" content="Typecho 1.1/17.10.30">
-    <meta name="template" content="postbird">
-    <link rel="pingback" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc">
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc?rsd">
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc?wlw">
-    <link rel="alternate" type="application/rss+xml" title="BootstrapBlog 主题 » RSS 2.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/">
-    <link rel="alternate" type="application/rdf+xml" title="BootstrapBlog 主题 » RSS 1.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/rss/">
-    <link rel="alternate" type="application/atom+xml" title="BootstrapBlog 主题 » ATOM 1.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/atom/">
+    @*<link rel="pingback" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc">*@
+    @*<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc?rsd">*@
+    @*<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/action/xmlrpc?wlw">*@
+    @*<link rel="alternate" type="application/rss+xml" title="BootstrapBlog 主题 » RSS 2.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/">
+        <link rel="alternate" type="application/rdf+xml" title="BootstrapBlog 主题 » RSS 1.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/rss/">
+        <link rel="alternate" type="application/atom+xml" title="BootstrapBlog 主题 » ATOM 1.0" href="http://theme.typecho.ptbird.cn/bootstrap-blog/index.php/feed/atom/">*@
     <!-- 用户自定义 stylesheet -->
     <!-- Custom styles for this template -->
     @*<link href="https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">*@
-    <link href="~/assets/css/footer.css" rel="stylesheet" />
+    @*<link href="~/assets/css/footer.css" rel="stylesheet" />*@
     <style type="text/css">
-        @("@")media (min-width: 768px) {
-            .navbar-expand-md .navbar-nav .nav-link {
-                padding-right: 0;
-                padding-left: 0;
-            }
 
-            .dropdown-submenu {
-                position: relative;
-            }
-
-                .dropdown-submenu a::after {
-                    transform: rotate(-90deg);
-                    position: absolute;
-                    right: 3px;
-                    top: 40%;
-                }
-
-                .dropdown-submenu:hover .dropdown-menu, .dropdown-submenu:focus .dropdown-menu {
-                    display: flex;
-                    flex-direction: column;
-                    position: absolute !important;
-                    margin-top: -30px;
-                    left: 100%;
-                }
-
-            @("@")media (max-width: 992px) {
-                .dropdown-menu {
-                    width: 50%;
-                }
-
-                    .dropdown-menu .dropdown-submenu {
-                        width: auto;
-                    }
-            }
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1300px;
         }
 
-        .topbar-user-avatar {
-    width: 32px;
-    height: 32px;
-    vertical-align: middle;
-    border-radius: 16px;
-}
+        /*
+        * Footer
+        *
+        * Separated section of content at the bottom of all pages, save the homepage.
+        */
 
+        .bs-docs-footer {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            margin-top: 100px;
+            color: #99979c;
+            text-align: center;
+            background-color: #2a2730;
+        }
+
+            .bs-docs-footer a {
+                color: #fff;
+            }
+
+        .bs-docs-footer-links {
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+            .bs-docs-footer-links li {
+                display: inline-block;
+            }
+
+                .bs-docs-footer-links li + li {
+                    margin-left: 15px;
+                }
+
+        @@media (min-width: 768px) {
+            .bs-docs-footer {
+                text-align: left;
+            }
+
+                .bs-docs-footer p {
+                    margin-bottom: 0;
+                }
+        }
     </style>
 
 
@@ -121,13 +128,14 @@
 </head>
 <body class="no-skin">
 
-    <![endif]-->
     @Html.Partial("_HeaderPartial")
-    <div id="body">
-        <div class="container main-wrapper">
-            @RenderBody()
-        </div>
 
+    @*<main role="main" class="container">
+        @RenderBody()
+    </main>*@
+
+    <div class="container">
+        @RenderBody()
     </div>
 
     @Html.Partial("_FooterPartial")
