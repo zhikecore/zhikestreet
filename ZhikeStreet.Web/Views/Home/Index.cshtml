@@ -94,182 +94,196 @@
     }
 </style>
 
-<!--轮播图-->
-<div class="row">
-    <div class="col-md-8">
-        <div id="demo" class="carousel slide post-wrapper" data-ride="carousel">
-            <!-- 指示符 -->
-            <ul class="carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
-            </ul>
+<div class="page-content">
 
-            <!-- 轮播图片 -->
-            <div class="carousel-inner">
-                @if (this.Model != null)
-                {
-                    foreach (ZhikeStreet.Models.DO.Article item in this.Model)
-                    {
-                        if (item == null)
+    <div class="page-content-area">
+
+        <!--轮播图-->
+        <div class="row" role="main">
+            <div class="col-md-8">
+                <div id="demo" class="carousel slide post-wrapper" data-ride="carousel">
+                    <!-- 指示符 -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+
+                    <!-- 轮播图片 -->
+                    <div class="carousel-inner">
+                        @if (this.Model != null)
                         {
-                            continue;
+                            foreach (ZhikeStreet.Models.DO.Article item in this.Model)
+                            {
+                                if (item == null)
+                                {
+                                    continue;
+                                }
+
+                                if (item.IsRecommend && item.IsUp)
+                                {
+                                    <div class="carousel-item active">
+                                        @if (String.IsNullOrEmpty(item.LinkUrl))
+                                        {
+                                            <a href="/home/detail/@item.Id"><img src="@item.Cover"></a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@item.LinkUrl"><img src="@item.Cover"></a>
+                                        }
+
+
+                                        <div class="carousel-caption">
+                                            <h3>@item.Title</h3>
+                                            <p>@item.Summary</p>
+                                        </div>
+                                    </div>
+                                }
+                                else if (item.IsUp)
+                                {
+                                    <div class="carousel-item">
+                                        @if (String.IsNullOrEmpty(item.LinkUrl))
+                                        {
+                                            <a href="/home/detail/@item.Id"><img src="@item.Cover"></a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@item.LinkUrl"><img src="@item.Cover"></a>
+                                        }
+
+                                        <div class="carousel-caption">
+                                            <h3>@item.Title</h3>
+                                            <p>@item.Summary</p>
+                                        </div>
+                                    </div>
+                                }
+
+                            }
                         }
+                    </div>
 
-                        if (item.IsRecommend && item.IsUp)
-                        {
-                            <div class="carousel-item active">
-                                @if (String.IsNullOrEmpty(item.LinkUrl))
-                                {
-                                    <a href="/home/detail/@item.Id"><img src="@item.Cover"></a>
-                                }
-                                else
-                                {
-                                    <a href="@item.LinkUrl"><img src="@item.Cover"></a>
-                                }
+                    <!-- 左右切换按钮 -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
 
-
-                                <div class="carousel-caption">
-                                    <h3>@item.Title</h3>
-                                    <p>@item.Summary</p>
-                                </div>
-                            </div>
-                        }
-                        else if (item.IsUp)
-                        {
-                            <div class="carousel-item">
-                                @if (String.IsNullOrEmpty(item.LinkUrl))
-                                {
-                                    <a href="/home/detail/@item.Id"><img src="@item.Cover"></a>
-                                }
-                                else
-                                {
-                                    <a href="@item.LinkUrl"><img src="@item.Cover"></a>
-                                }
-
-                                <div class="carousel-caption">
-                                    <h3>@item.Title</h3>
-                                    <p>@item.Summary</p>
-                                </div>
-                            </div>
-                        }
-
-                    }
-                }
+                </div>
             </div>
-
-            <!-- 左右切换按钮 -->
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div id="img_news" class="post-wrapper">
-            @if (this.Model != null)
-            {
-                foreach (ZhikeStreet.Models.DO.Article item in this.Model)
-                {
-                    if (item == null)
+            <div class="col-md-4">
+                <div id="img_news" class="post-wrapper">
+                    @if (this.Model != null)
                     {
-                        continue;
-                    }
-
-                    if (item.IsRecommend && !item.IsUp)
-                    {
-                        <div style="height:50%;padding:0 0 5px 0;" class="img_scale">
-                            <a href="/home/detail/@item.Id"><img style="height:195px;width:100%;overflow:hidden;" src="@item.Cover" /></a>
-                        </div>
-                    }
-                }
-            }
-
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-8 col-xs-12 " id="main" role="main">
-        <div id="list_articles">
-
-        </div>
-        <nav aria-label="Page navigation ">
-            <ul class="pagination" id="pagination"></ul>
-        </nav>
-    </div><!-- end #main-->
-    <div class="col-md-4 kit-hidden-tb" id="secondary" role="complementary">
-
-        <!-- 边栏显示最近文章，默认注释掉 -->
-        <!-- 边栏显示最近回复，默认开启 -->
-        <section class="widget">
-            <div class="module-head">24小时商业热点</div>
-            <ul class="list-group">
-                @if (this.Model != null)
-                {
-                    foreach (ZhikeStreet.Models.DO.Article item in this.Model)
-                    {
-                        if (item == null)
+                        foreach (ZhikeStreet.Models.DO.Article item in this.Model)
                         {
-                            continue;
-                        }
+                            if (item == null)
+                            {
+                                continue;
+                            }
 
-                        if (item.IsHot)
-                        {
-                            <li class="list-group-item comment-item">
-                                <div class="row">
-                                    <div class="col-md-4 ">
-                                        @if (!String.IsNullOrEmpty(item.LinkUrl))
-                                        {
-                                            <a href="@item.LinkUrl">
-                                                <img src="@item.Cover" alt="文章缩略图" class="post-thumb-image img-thumbnail">
-                                            </a>
-                                        }
-                                        else
-                                        {
-                                            <a href="/home/detail/@item.Id">
-                                                <img src="@item.Cover" alt="文章缩略图" class="post-thumb-image img-thumbnail">
-                                            </a>
-                                        }
-                                    </div>
-                                    <div class="col-md-8">
-                                        @if (!String.IsNullOrEmpty(item.LinkUrl))
-                                        {
-                                            <a href="@item.LinkUrl">
-                                                <div class="post-content" itemprop="articleBody">
-                                                    <p>@item.Title</p>
-                                                </div>
-                                            </a>
-                                        }
-                                        else
-                                        {
-                                            <a href="/home/detail/@item.Id">
-                                                <div class="post-content" itemprop="articleBody">
-                                                    <p>@item.Title</p>
-                                                </div>
-                                            </a>
-                                        }
-
-                                    </div>
-
+                            if (item.IsRecommend && !item.IsUp)
+                            {
+                                <div style="height:50%;padding:0 0 5px 0;" class="img_scale">
+                                    <a href="/home/detail/@item.Id"><img style="height:195px;width:100%;overflow:hidden;" src="@item.Cover" /></a>
                                 </div>
-                            </li>
+                            }
                         }
                     }
-                }
-            </ul>
-        </section>
 
-    </div><!-- end #sidebar -->
-    <a class="to-top" style="z-index: 1200; cursor: pointer; position: fixed; right: 15px; bottom: 30px; display: none;">
-        <img src="~/assets/img/top.svg" alt="返回顶部" title="返回顶部">
-    </a>
+                </div>
+            </div>
+        </div>
 
-    <!-- 用户自定义脚本内容 -->
+        <div class="row">
+            <div class="col-md-8 col-xs-12 " id="main" role="main">
+                <div id="list_articles">
+
+                </div>
+                <nav aria-label="Page navigation ">
+                    <ul class="pagination" id="pagination"></ul>
+                </nav>
+            </div><!-- end #main-->
+            <div class="col-md-4 kit-hidden-tb" id="secondary" role="complementary">
+
+                <!-- 边栏显示最近文章，默认注释掉 -->
+                <!-- 边栏显示最近回复，默认开启 -->
+                <section class="widget">
+                    <div class="module-head">24小时商业热点</div>
+                    <ul class="list-group">
+                        @if (this.Model != null)
+                        {
+                            foreach (ZhikeStreet.Models.DO.Article item in this.Model)
+                            {
+                                if (item == null)
+                                {
+                                    continue;
+                                }
+
+                                if (item.IsHot)
+                                {
+                                    <li class="list-group-item comment-item">
+                                        <div class="row">
+                                            <div class="col-md-4 ">
+                                                @if (!String.IsNullOrEmpty(item.LinkUrl))
+                                                {
+                                                    <a href="@item.LinkUrl">
+                                                        <img src="@item.Cover" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/home/detail/@item.Id">
+                                                        <img src="@item.Cover" alt="文章缩略图" class="post-thumb-image img-thumbnail">
+                                                    </a>
+                                                }
+                                            </div>
+                                            <div class="col-md-8">
+                                                @if (!String.IsNullOrEmpty(item.LinkUrl))
+                                                {
+                                                    <a href="@item.LinkUrl">
+                                                        <div class="post-content" itemprop="articleBody">
+                                                            <p>@item.Title</p>
+                                                        </div>
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/home/detail/@item.Id">
+                                                        <div class="post-content" itemprop="articleBody">
+                                                            <p>@item.Title</p>
+                                                        </div>
+                                                    </a>
+                                                }
+
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        }
+                    </ul>
+                </section>
+
+            </div><!-- end #sidebar -->
+            <a class="to-top" style="z-index: 1200; cursor: pointer; position: fixed; right: 15px; bottom: 30px; display: none;">
+                <img src="~/assets/img/top.svg" alt="返回顶部" title="返回顶部">
+            </a>
+
+            <!-- 用户自定义脚本内容 -->
+        </div>
+
+    </div>
+
 </div>
+
+
+
+
+
+
 
 <script type="text/javascript">
 

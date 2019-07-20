@@ -96,6 +96,17 @@ namespace ZhikeStreet.Web.Areas.Admins.Controllers
             return RedirectToAction("index", "default");
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            return View();
+        }
+
         public ActionResult Logout()
         {
             Session[AccountHashKeys.CurrentAdminUser] = null;
